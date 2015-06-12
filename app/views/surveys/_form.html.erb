@@ -33,7 +33,8 @@
     </div>
     <div class="field">
       <%= ff.label :question_type %><br>
-      <%= ff.text_field :question_type %>
+      <%= ff.select(:question_type,
+          options = {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'}) %>
     </div>
     <div class="field">
       <%= ff.label :value %><br>
