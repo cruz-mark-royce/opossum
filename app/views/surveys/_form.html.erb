@@ -2,19 +2,17 @@
   <% if @survey.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
-
       <ul>
-      <% @survey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @survey.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
-  </div>
+  </div> -->
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -23,10 +21,27 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :published %><br>
-    <%= f.check_box :published %>
-  </div>
+  <h2>Questions</h2>
+  <%=  f.fields_for(:questions) do |ff| %>
+    <!-- <div class="field">
+      <%= ff.label :survey_id %><br>
+      <%= ff.text_field :survey_id %>
+    </div> -->
+    <div class="field">
+      <%= ff.label :order %><br>
+      <%= ff.number_field :order %>
+    </div>
+    <div class="field">
+      <%= ff.label :question_type %><br>
+      <%= ff.text_field :question_type %>
+    </div>
+    <div class="field">
+      <%= ff.label :value %><br>
+      <%= ff.text_field :value %>
+    </div>
+    <hr/>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
