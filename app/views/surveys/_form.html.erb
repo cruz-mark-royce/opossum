@@ -27,20 +27,23 @@
       <%= ff.label :survey_id %><br>
       <%= ff.text_field :survey_id %>
     </div> -->
-    <div class="field">
-      <%= ff.label :order %><br>
-      <%= ff.number_field :order %>
-    </div>
-    <div class="field">
-      <%= ff.label :question_type %><br>
-      <%= ff.select(:question_type,
-          options = {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'}) %>
-    </div>
-    <div class="field">
-      <%= ff.label :value %><br>
-      <%= ff.text_field :value %>
-    </div>
-    <hr/>
+    <form class="pure-form">
+      <fieldset class="fieldset">
+      <div class="field order">
+        <%= ff.label :order %><br>
+        <%= ff.number_field :order %>
+      </div>
+      <div class="field">
+        <%= ff.label :question_type %><br>
+        <%= ff.select(:question_type, {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'}) %>
+      </div>
+      <div class="field">
+        <%= ff.label :value %><br>
+        <%= ff.text_field :value %>
+      </div>
+      </fieldset>
+    </form>
+    
   <% end %>
 
   <div class="actions">

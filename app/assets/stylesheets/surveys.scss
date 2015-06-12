@@ -1,3 +1,111 @@
 // Place all the styles related to the Surveys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*************************
+Colors
+*************************/
+
+$white: #EEE;
+$black: #333;
+$primary-color: HSLA(181, 72%, 45%, 1);
+
+/*************************
+Fonts
+*************************/
+
+$font: 'Open Sans', sans-serif;
+
+/**************************
+Mixins
+**************************/
+
+@mixin center-vert {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+}
+
+@mixin center-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+
+/**************************
+Page
+**************************/
+
+body {
+  background-color: white;
+}
+
+.question-container {
+  width: 60%;
+  margin: 0 auto;
+  background-color: $white;
+  padding: 0.5em 0.5em;
+  border-radius: 5px;
+}
+
+label {
+  display: none;
+}
+/*
+.order {
+  display: none;
+}
+*/
+.new-question-header {
+  float: left;
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  margin: 0.4em -1em;
+  font-size: 1.2em;
+}
+
+select {
+  margin-left: 0.8em;
+  height: 2.25em;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.question_value {
+  width: 60%;
+  font-size: 1em;
+  margin: 0 0 0 1.5em;
+}
+
+.create-button {
+  margin: 0 1em;
+  float: right;
+  background-color: $primary-color;
+}
+
+fieldset {
+  padding: 0.15em 0 0.15em;
+  border: none;
+  
+}
+
+.question_question_type {
+   height: 2.25em;
+   border: 1px solid #ccc;
+   background-color: white;
+}
+
