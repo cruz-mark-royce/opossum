@@ -44,10 +44,13 @@
       <%= ff.text_field :value %>
     </div>
     <div class="field">
-      <%= ff.label :require, "Should people be required to answer this question?" %><br>
+      <%= ff.label :require, "Required" %>
       <%= ff.check_box :require %>
     </div>
-
+    <div class="field">
+      <%= ff.label :_destroy, "Delete" %>
+      <%= ff.check_box :_destroy %>
+    </div>
     <hr/>
   <% end %>
 
