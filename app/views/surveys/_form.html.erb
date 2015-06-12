@@ -34,12 +34,20 @@
     <div class="field">
       <%= ff.label :question_type %><br>
       <%= ff.select(:question_type,
-          options = {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'}) %>
+              {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'},
+              {include_blank: true},
+              {class: "EXAMPLE"}
+          ) %>
     </div>
     <div class="field">
       <%= ff.label :value %><br>
       <%= ff.text_field :value %>
     </div>
+    <div class="field">
+      <%= ff.label :require, "Should people be required to answer this question?" %><br>
+      <%= ff.check_box :require %>
+    </div>
+
     <hr/>
   <% end %>
 
