@@ -45,4 +45,11 @@ class QuestionTest < ActiveSupport::TestCase
     assert q4.save
     assert q5.save
   end
+
+  test "should not require require but it does exist" do
+    q1 = Question.create(question_type: "string", value: "question?", survey_id: @survey1.id, order: 1, require: true)
+    q2 = Question.create(question_type: "string", value: "question?", survey_id: @survey1.id, order: 2, require: false)
+    assert q1.require
+    refute q2.require
+  end
 end

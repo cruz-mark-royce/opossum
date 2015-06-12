@@ -27,23 +27,31 @@
       <%= ff.label :survey_id %><br>
       <%= ff.text_field :survey_id %>
     </div> -->
-    <form class="pure-form">
-      <fieldset class="fieldset">
-      <div class="field order">
-        <%= ff.label :order %><br>
-        <%= ff.number_field :order %>
-      </div>
-      <div class="field">
-        <%= ff.label :question_type %><br>
-        <%= ff.select(:question_type, {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'}) %>
-      </div>
-      <div class="field">
-        <%= ff.label :value %><br>
-        <%= ff.text_field :value %>
-      </div>
-      </fieldset>
-    </form>
-    
+    <div class="field">
+      <%= ff.label :order %><br>
+      <%= ff.number_field :order %>
+    </div>
+    <div class="field">
+      <%= ff.label :question_type %><br>
+      <%= ff.select(:question_type,
+              {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'},
+              {include_blank: true},
+              {class: "EXAMPLE"}
+          ) %>
+    </div>
+    <div class="field">
+      <%= ff.label :value %><br>
+      <%= ff.text_field :value %>
+    </div>
+    <div class="field">
+      <%= ff.label :require, "Required" %>
+      <%= ff.check_box :require %>
+    </div>
+    <div class="field">
+      <%= ff.label :_destroy, "Delete" %>
+      <%= ff.check_box :_destroy %>
+    </div>
+    <hr/>
   <% end %>
 
   <div class="actions">
