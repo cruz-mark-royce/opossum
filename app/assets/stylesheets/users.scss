@@ -15,19 +15,17 @@ $primary-color: HSLA(181, 72%, 45%, 1);
 
 .new-user-h1{
   font-family: $fontfamily;
-  font-size: 20pt;
+  font-size: 2em;
   margin-top: 4em;
 }
 
 .new-user-form-container{
   background-color: $white;
   font-family: $fontfamily;
-  position:absolute;
+  margin: 1em auto;
   width:300px;
   top: 25%;
-  left:50%;
-  margin:-100px 0 0 -150px;
-  margin-top: 1em;
+  font-size: 1.4em;
 }
 
 

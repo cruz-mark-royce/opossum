@@ -13,17 +13,21 @@
     <%= f.label :user_id %><br>
     <%= f.text_field :user_id %>
   </div> -->
-  <fieldset class="survey-field pure-form">
-  <div class="field survey-title">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div>
+    <form class="pure-form">
+      <fieldset class="survey-field">
+        <div class="field survey-title">
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </div>
+        <div class="field survey-desc">
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
+        <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
+      </fieldset>
+    </form>
   </div>
-  <div class="field survey-desc">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-  <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
-  </fieldset>
   <h2>Questions</h2>
   <%=  f.fields_for(:questions) do |ff| %>
     <!-- <div class="field">
