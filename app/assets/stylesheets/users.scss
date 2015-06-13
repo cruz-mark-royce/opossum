@@ -1,3 +1,47 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$white: #EEE;
+$black: #333;
+$fontfamily: 'Open Sans', sans-serif;
+$primary-color: HSLA(181, 72%, 45%, 1);
+
+@mixin center-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+h1{
+  font-family: $fontfamily;
+  font-size: 20pt;
+  margin-top: 4em;
+}
+
+.new-user-form-container{
+  background-color: $white;
+  font-family: $fontfamily;
+  position:absolute;
+  width:300px;
+  top: 25%;
+  left:50%;
+  margin:-100px 0 0 -150px;
+  margin-top: 1em;
+}
+
+.field{
+  display: block;
+  margin: 2em;
+  line-height: 2em;
+}
+
+.create-button{
+  font-family: 'Open Sans', sans-serif;
+  background-color: $primary-color;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
