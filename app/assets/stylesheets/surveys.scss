@@ -93,6 +93,7 @@ Questions Section
 
 body {
   font-family: $font;
+  margin: 5em 0 0 0;
 }
 
 h2 {
@@ -174,4 +175,51 @@ fieldset {
   padding: 0.5em 0.5em;
   border-radius: 5px;
   border-bottom: 1em solid white;
+}
+
+.update-survey {
+  background-color: $primary-color;
+  @include center-horizontal;
+}
+
+
+/***********************************
+Header
+***********************************/
+
+.header {
+	background-color: HSLA(0, 0%, 20%, 0.6);
+  position: fixed;
+  top: 0;
+  height: 3.2em;
+}
+
+.logo {
+	font-size: 1.4em;
+}
+
+.menu {
+	
+}
+
+.menu-item {
+	font-size: 1.2em;
+	padding: 0.75em;
+}
+
+.menu-item a {
+	text-decoration: none;
+	color: white;
+	font-family: $font;
+}
+
+.menu-item:hover {
+  background-color: $white;
+  a {
+    color: HSLA(0, 0%, 20%, 0.6);
+  }
+}
+
+.menu-item a:hover {
+  background-color: $white;
 }
