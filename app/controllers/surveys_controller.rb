@@ -7,6 +7,10 @@ class SurveysController < ApplicationController
     @surveys = Survey.all
   end
 
+  def submit
+    @survey = Survey.find(params[:survey_id])
+  end
+
   def user_index
 
   end
@@ -51,10 +55,10 @@ class SurveysController < ApplicationController
       if @survey.update(survey_params)
         if params[:commit] == 'Publish'
           @survey.update(published: true)
-          format.html { redirect_to publish_path, notice: 'Survey was successfully published.' }
+          format.html { redirect_to "/publish/#{@survey.id}", notice: 'Survey was successfully published.' }
         elsif params[:commit] == 'Unpublish'
           @survey.update(published: false)
-          format.html { redirect_to publish_path, notice: 'Survey was successfully unpublished.' }
+          format.html { redirect_to surveys_path, notice: 'Survey was successfully unpublished.' }
         else
           format.html { redirect_to surveys_path, notice: 'Survey was successfully updated.' }
           format.json { render :show, status: :ok, location: @survey }
