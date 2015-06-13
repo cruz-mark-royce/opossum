@@ -84,7 +84,6 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params[:survey] = Survey.find(params[:id]).to_json_with_active_support_encoder
       params.require(:survey).permit(:user_id, :title, :description, :published,
           questions_attributes: [:id, :survey_id, :order, :question_type, :value, :require, :_destroy]
       )
