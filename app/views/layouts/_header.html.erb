@@ -1,6 +1,21 @@
-<%= link_to "Home", root_path %>
-<%= link_to "Logout", logout_path %>
-<%= link_to "Create Survey", new_survey_path %>
-<%= link_to "My Surveys", mysurveys_path %>
-<%= link_to "Sign up", new_user_path %>
-<%= link_to "Login", sessions_new_path %>
+<div class="header pure-menu pure-menu-horizontal">
+	<ul class="menu pure-menu-list">
+		<li class="menu-item pure-menu-item">
+			<%= link_to "Home", root_path %>
+		</li>
+		<li class="menu-item pure-menu-item">
+			<%= link_to "Logout", logout_path %>
+		</li>
+		<li class="menu-item pure-menu-item">
+			<%= link_to "Create Survey", new_survey_path %>
+		</li>
+		<li class="menu-item pure-menu-item">
+			<%= link_to "My Surveys", mysurveys_path %>
+		</li>
+		<li class="menu-item pure-menu-item">
+			<%= link_to "Sign up", new_user_path %>
+		</li>
+		<li class="menu-item pure-menu-item">
+			<%= link_to "Login", sessions_new_path %>
+		</li>
+</div>
