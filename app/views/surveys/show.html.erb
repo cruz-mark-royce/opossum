@@ -1,24 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>User:</strong>
   <%= @survey.user %>
 </p>
-
 <p>
   <strong>Title:</strong>
   <%= @survey.title %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @survey.description %>
 </p>
-
 <p>
   <strong>Published:</strong>
   <%= @survey.published %>
 </p>
-
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Edit', edit_survey_path(@survey) %>
+|
 <%= link_to 'Back', surveys_path %>

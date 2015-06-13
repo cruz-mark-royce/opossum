@@ -10,6 +10,9 @@ class SurveysController < ApplicationController
   def user_index
 
   end
+
+  def publish
+  end
   # GET /surveys/1
   # GET /surveys/1.json
   def show
@@ -46,8 +49,16 @@ class SurveysController < ApplicationController
   def update
     respond_to do |format|
       if @survey.update(survey_params)
-        format.html { redirect_to @survey, notice: 'Survey was successfully updated.' }
-        format.json { render :show, status: :ok, location: @survey }
+        if params[:commit] == 'Publish'
+          @survey.update(published: true)
+          format.html { redirect_to publish_path, notice: 'Survey was successfully published.' }
+        elsif params[:commit] == 'Unpublish'
+          @survey.update(published: false)
+          format.html { redirect_to publish_path, notice: 'Survey was successfully unpublished.' }
+        else
+          format.html { redirect_to surveys_path, notice: 'Survey was successfully updated.' }
+          format.json { render :show, status: :ok, location: @survey }
+        end
       else
         format.html { render :edit }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
@@ -73,6 +84,7 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
+      params[:survey] = Survey.find(params[:id]).to_json_with_active_support_encoder
       params.require(:survey).permit(:user_id, :title, :description, :published,
           questions_attributes: [:id, :survey_id, :order, :question_type, :value, :require, :_destroy]
       )

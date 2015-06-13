@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   get 'logout' => 'sessions#destroy'
   get 'answers/create'
+  get 'publish' => 'surveys#publish'
 
   resources :questions
   resources :surveys
