@@ -9,6 +9,8 @@ Colors
 $white: #EEE;
 $black: #333;
 $primary-color: HSLA(181, 72%, 45%, 1);
+$delete-color: HSLA(347, 100%, 50%, 1);
+$general-color: HSLA(181, 5%, 45%, 1);
 
 /*************************
 Fonts
@@ -94,6 +96,7 @@ Questions Section
 body {
   font-family: $font;
   margin: 5em 0 0 0;
+  font-size: 12pt;
 }
 
 h2 {
@@ -192,6 +195,7 @@ Header
   position: fixed;
   top: 0;
   height: 3.2em;
+  z-index: 1000;
 }
 
 .logo {
@@ -223,3 +227,59 @@ Header
 .menu-item a:hover {
   background-color: $white;
 }
+
+.survey-list-container {
+  @include center-horizontal;
+  width: 95%;
+}
+
+.survey-card {
+  width: 25%;
+  margin: 1em auto;
+  background-color: $white;
+  padding: 1em;
+  z-index: -1;
+}
+
+.survey-data {
+  display: block;
+  margin: 1em auto;
+  width: 60%;
+}
+
+.survey-list-actions {
+  list-style-type: none;
+  display: block;
+  margin: 2em 1em 1em 1em;
+}
+
+.survey-list-button {
+  display: inline-block;
+}
+
+.survey-list-button a {
+  text-decoration: none;
+  display: block;
+}
+
+.survey-show {
+  background-color: $general-color;
+  color: white;
+}
+
+.survey-data-content {
+  font-size: 1.2em;
+}
+
+.survey-edit {
+  background-color: $primary-color;
+  color: white;
+}
+
+.survey-destroy {
+  background-color: $delete-color;
+  color: white;
+}
+
+
+
