@@ -48,13 +48,20 @@ Mixins
 Survey Information 
 *************************/
 
+.edit-header {
+  text-align: center;
+  margin: 1em 0;
+}
+
 .survey-field {
-  width: 60%;
+  width: 20%;
   margin: 0 auto;
   background-color: $white;
-  padding: 0.5em 0.5em;
+  padding: 2em 0.5em;
   border-radius: 5px;
   border-bottom: 1em solid white;
+  text-align: center;
+  font-family: $font;
 }
 
 .survey-title {
@@ -67,13 +74,24 @@ Survey Information
   margin: 0 auto;
 }
 
+.survey-field label {
+  font-size: 1.4em;
+  margin: 1em;
+  display: block;
+}
+
+.survey-field .create-button {
+  display: block;
+  margin: 0.8em auto 0;
+}
+
 
 /**************************
 Questions Section
 **************************/
 
 body {
-  
+  font-family: $font;
 }
 
 h2 {
