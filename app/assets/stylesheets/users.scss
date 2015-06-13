@@ -12,6 +12,7 @@ $primary-color: HSLA(181, 72%, 45%, 1);
   transform: translate(-50%);
 }
 
+
 .new-user-h1{
   font-family: $fontfamily;
   font-size: 20pt;
@@ -29,11 +30,13 @@ $primary-color: HSLA(181, 72%, 45%, 1);
   margin-top: 1em;
 }
 
+
 .new-user-form-container .field{
   display: block;
   margin: 2em;
   line-height: 2em;
 }
+
 
 .new-user-form-container .create-button{
   font-family: 'Open Sans', sans-serif;
