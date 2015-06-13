@@ -44,25 +44,48 @@ Mixins
   }
 }
 
+/*************************
+Survey Information 
+*************************/
 
-/**************************
-Page
-**************************/
-
-body {
-  background-color: white;
-}
-
-.question-container {
+.survey-field {
   width: 60%;
   margin: 0 auto;
   background-color: $white;
   padding: 0.5em 0.5em;
   border-radius: 5px;
+  border-bottom: 1em solid white;
 }
 
-label {
+.survey-title {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.survey-desc {
+  width: 60%;
+  margin: 0 auto;
+}
+
+
+/**************************
+Questions Section
+**************************/
+
+body {
+  
+}
+
+h2 {
+  text-align: center;
+}
+
+.question-field label {
   display: none;
+}
+
+.require label {
+  display: block;
 }
 /*
 .order {
@@ -70,12 +93,12 @@ label {
 }
 */
 .new-question-header {
-  float: left;
   display: inline-block;
   position: absolute;
-  left: 10%;
   margin: 0.4em -1em;
   font-size: 1.2em;
+  left: -12%;
+  @include center-vert;
 }
 
 select {
@@ -85,27 +108,51 @@ select {
   background-color: white;
 }
 
-.question_value {
-  width: 60%;
-  font-size: 1em;
-  margin: 0 0 0 1.5em;
-}
-
 .create-button {
-  margin: 0 1em;
-  float: right;
   background-color: $primary-color;
 }
 
 fieldset {
   padding: 0.15em 0 0.15em;
   border: none;
-  
 }
 
-.question_question_type {
-   height: 2.25em;
-   border: 1px solid #ccc;
-   background-color: white;
+.field {
+  display: inline-block;
+  text-align: center;
 }
 
+.order {
+  width: 100%;
+}
+
+.order-container {
+  width: 5%;
+}
+
+.type-container {
+  width: 8.5%;
+}
+
+.type-select {
+  width: 100%;
+}
+
+.enter-question {
+  width: 100%;
+  font-size: 1em;
+}
+
+.value-container {
+  margin: 0 0.5em 0 1.5em;
+  width: 60%;
+}
+
+.question-field {
+  width: 60%;
+  margin: 0 auto;
+  background-color: $white;
+  padding: 0.5em 0.5em;
+  border-radius: 5px;
+  border-bottom: 1em solid white;
+}
