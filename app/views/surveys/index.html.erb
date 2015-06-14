@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Surveys</h1>
 <div class="survey-list-container">
   <% @surveys.each do |survey| %>
@@ -8,7 +6,6 @@
       <div class="survey-data"><span class="survey-data-content"><strong>Title:</strong></span> <%= survey.title %></div>
       <div class="survey-data"><span class="survey-data-content"><strong>Description:</strong></span> <%= survey.description %></div>
       <div class="survey-data"><span class="survey-data-content"><strong>Published:</strong></span> <%= survey.published %></div>
-
       <ul class="survey-list-actions">
         <li class="survey-list-button"><%= link_to 'Show', survey, {class: 'pure-button survey-show'} %></li>
         <li class="survey-list-button"><%= link_to 'Edit', edit_survey_path(survey), {class: 'pure-button survey-edit'} %></li>

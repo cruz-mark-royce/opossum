@@ -22,9 +22,15 @@
       <strong>Published:</strong>
       <%= @survey.published %>
     </div><br>
-
+    <% @survey.questions.order(:order).each do |q| %>
+        Question <%= q.order %><br/>
+        Question Type: <%= q.question_type %><br/>
+        Question: <%= q.value %><br/>
+        required: <%= q.require %><br/>
+        <hr>
+      <% end %>
     <div class = "survey-view-page-actions-container">
-
+      
       <ul class="survey-list-actions">
 
         <li class="survey-list-button" id = "show-page-edit-button"><%= link_to 'Edit', edit_survey_path(@survey), {class: 'pure-button survey-edit'} %></li>
@@ -36,4 +42,6 @@
     </div>
 
   </div>
+  
 </div>
+
