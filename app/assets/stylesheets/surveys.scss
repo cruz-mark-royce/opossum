@@ -47,7 +47,7 @@ Mixins
 }
 
 /*************************
-Survey Information 
+Survey Information
 *************************/
 
 
@@ -210,7 +210,7 @@ Header
 }
 
 .menu {
-	
+
 }
 
 .menu-item {
@@ -288,5 +288,24 @@ Header
   color: white;
 }
 
+//Styling for the survey show page
+.survey-card-show{
+  width: 50%;
+  margin: 1em auto;
+  background-color: $white;
+  padding: 1em;
+  z-index: -1;
+}
 
+.survey-view-page-actions-container{
+  width: 100%;
+}
 
+.survey-list-actions{
+  text-align: center;
+  margin-right: 5em;
+}
+
+#show-page-edit-button{
+  margin-right: 1em;
+}

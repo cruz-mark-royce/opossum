@@ -1,23 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @survey.user %>
-</p>
+<h1>
+  <%= @survey.title%>
+</h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
+<div class = "survey-list-container">
 
-<p>
-  <strong>Description:</strong>
-  <%= @survey.description %>
-</p>
+  <div class="survey-card-show">
 
-<p>
-  <strong>Published:</strong>
-  <%= @survey.published %>
-</p>
+    <div class = "survey-creator">
+      <strong>Created by </strong>
+      <%= @survey.user %>
+    </div><br>
 
+    <div class = "survey-description">
+      <strong>Description</strong><br><br>
+      <%= @survey.description %>
+    </div><br>
 
+    <div class = "published">
+      <strong>Published:</strong>
+      <%= @survey.published %>
+    </div><br>
+
+    <div class = "survey-view-page-actions-container">
+
+      <ul class="survey-list-actions">
+
+        <li class="survey-list-button" id = "show-page-edit-button"><%= link_to 'Edit', edit_survey_path(@survey), {class: 'pure-button survey-edit'} %></li>
+
+        <li class="survey-list-button"><%= link_to 'Destroy', @survey, :class=> 'pure-button survey-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></li>
+
+      </ul>
+
+    </div>
+
+  </div>
+</div>
