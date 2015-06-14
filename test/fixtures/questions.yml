@@ -1,19 +1,43 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   survey_id: 1
   order: 9000
   question_type: boolean
   value: MyString
 
 two:
+  id: 2
   survey_id: 1
   order: 9001
   question_type: boolean
   value: MyString
 
 three:
+  id: 3
   survey_id: 1
   order: 9003
+  question_type: boolean
+  value: MyString
+
+four:
+  id: 4
+  survey_id: 2
+  order: 9004
+  question_type: boolean
+  value: MyString
+
+five:
+  id: 5
+  survey_id: 2
+  order: 9005
+  question_type: boolean
+  value: MyString
+
+six:
+  id: 6
+  survey_id: 2
+  order: 9006
   question_type: boolean
   value: MyString

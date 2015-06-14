@@ -302,7 +302,7 @@ Header
   margin-right: 1em;
 
 }
-  
+
 .create-button-add {
   position: absolute;
   background-color: $general-color;
@@ -321,5 +321,4 @@ Header
 
 .required:before {
   content: " *";
-    color: red;
 }

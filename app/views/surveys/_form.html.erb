@@ -27,7 +27,7 @@
   </fieldset>
   </div>
   <h2>Questions</h2>
-  <div class="questions-container"> 
+  <div class="questions-container">
   <%=  f.fields_for(:questions) do |ff| %>
     <!-- <div class="field">
       <%= ff.label :survey_id %><br>
@@ -65,8 +65,8 @@
       </fieldset>
       </div>
    </script>
-   
-   
+
+
    <fieldset class="question-field pure-form">
     <div class="field order-container">
       <%= ff.label :order %><br>
@@ -81,9 +81,8 @@
           ) %>
     </div>
     <div class="field value-container">
-      <%= ff.label :value %>
+      <%= ff.label :value, "Question"  %>
       <%= ff.text_field :value, {class: "enter-question"} %>
-    </div>
     <div class="field require">
       <%= ff.label :require, "Required" %>
       <%= ff.check_box :require, {class: 'checkbox'} %>
@@ -96,14 +95,20 @@
     <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
     <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
    </fieldset>
-   
+
   <% end %>
     </div>
 
   <div class="actions">
-    <%= f.submit :class=> 'pure-button pure-button-primary update-survey'%>
+    <%= f.submit "Save", :class=> 'pure-button pure-button-primary update-survey'%>
   </div>
-  
-  
+
+  <div class="actions">
+    <%= f.submit "Publish", :class=> 'pure-button pure-button-primary update-survey'%>
+  </div>
+  <div class="actions">
+    <%= f.submit "Unpublish", :class=> 'pure-button pure-button-primary update-survey', data: { confirm: "Are you sure?" }%>
+  </div>
+
+
 <% end %>
-  

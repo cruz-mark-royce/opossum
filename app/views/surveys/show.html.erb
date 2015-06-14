@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <h1>
@@ -22,6 +23,16 @@
       <strong>Published:</strong>
       <%= @survey.published %>
     </div><br>
+
+    <p>
+    <% @survey.questions.order(:order).each do |q| %>
+      Question <%= q.order %><br/>
+      Question Type: <%= q.question_type %><br/>
+      Question: <%= q.value %><br/>
+      required: <%= q.require %><br/>
+      <hr>
+    <% end %>
+    <br/>
 
     <div class = "survey-view-page-actions-container">
 
