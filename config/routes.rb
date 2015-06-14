@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   root 'surveys#index'
-  get 'sessions/new'
-
-  get 'sessions/create'
+  get 'login' => 'sessions#new'
+  post 'sessions/create'
 
   get 'sessions/destroy'
   get 'logout' => 'sessions#destroy'
   get 'answers/create'
+  get 'publish/:survey_id' => 'surveys#publish'
 
-  resources :questions
   resources :surveys
   get 'mysurveys' => 'surveys#user_index'
+  get 'take/:survey_id' => 'surveys#submit'
+  patch 'take/:survey_id' => 'surveys#submit'
+
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

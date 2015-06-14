@@ -1,24 +1,21 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>User:</strong>
+  <strong>By:</strong>
   <%= @survey.user %>
 </p>
-
 <p>
   <strong>Title:</strong>
   <%= @survey.title %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @survey.description %>
 </p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @survey.published %>
-</p>
-
-<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<% @survey.questions.order(:order).each do |q| %>
+  Question <%= q.order %><br/>
+  Question Type: <%= q.question_type %><br/>
+  Question: <%= q.value %><br/>
+  required: <%= q.require %><br/>
+  <hr>
+<% end %>
+<br/>
 <%= link_to 'Back', surveys_path %>

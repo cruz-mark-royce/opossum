@@ -23,27 +23,44 @@
   </div>
   <h2>Questions</h2>
   <%=  f.fields_for(:questions) do |ff| %>
-    <!-- <div class="field">
-      <%= ff.label :survey_id %><br>
-      <%= ff.text_field :survey_id %>
-    </div> -->
     <div class="field">
       <%= ff.label :order %><br>
-      <%= ff.number_field :order %>
+      <%= ff.number_field :order, {class: "EXAMPLE"} %>
     </div>
     <div class="field">
       <%= ff.label :question_type %><br>
-      <%= ff.select(:question_type,
-          options = {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'}) %>
+      <%= ff.select :question_type,
+              {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'},
+              {include_blank: true},
+              {class: "EXAMPLE"}
+      %>
     </div>
     <div class="field">
-      <%= ff.label :value %><br>
+      <%= ff.label :value, "Question" %><br>
       <%= ff.text_field :value %>
+    </div>
+    <div class="field">
+      <%= ff.label :require, "Required" %>
+      <%= ff.check_box :require %>
+    </div>
+    <div class="field">
+      <%= ff.label :_destroy, "Delete" %>
+      <%= ff.check_box :_destroy %>
     </div>
     <hr/>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <span class="actions">
+    <%= f.submit "Save"%>
+  </span>
+
+  <span class="actions">
+    <%= f.submit "Publish" %>
+  </span>
+
+  <span class="actions">
+    <%= f.submit "Unpublish", data: { confirm: "Are you sure?" } %>
+  </span>
+
+
 <% end %>
