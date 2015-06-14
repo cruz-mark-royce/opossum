@@ -1,6 +1,9 @@
 <%= link_to "Home", root_path %>
-<%= link_to "Logout", logout_path %>
-<%= link_to "Create Survey", new_survey_path %>
-<%= link_to "My Surveys", mysurveys_path %>
-<%= link_to "Sign up", new_user_path %>
-<%= link_to "Login", sessions_new_path %>
+<% if session[:user_id] %>
+  <%= link_to "My Surveys", mysurveys_path %>
+  <%= link_to "Create Survey", new_survey_path %>
+  <%= link_to "Logout", logout_path %>
+<% else %>
+  <%= link_to "Login", login_path %>
+  <%= link_to "Sign up", new_user_path %>
+<% end %>

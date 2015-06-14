@@ -14,9 +14,9 @@
   <tbody>
     <% @surveys.each do |survey| %>
       <tr>
-        <td><%= survey.user %></td>
-        <td><%= survey.title %></td>
-        <td><%= survey.description %></td>
+        <td><%= survey.user.name.capitalize %></td>
+        <td><%= survey.title.capitalize %></td>
+        <td><%= survey.description.capitalize %></td>
         <td><%= survey.published %></td>
         <td><%= link_to 'Show', survey %></td>
         <td><%= link_to 'Take', "/take/#{survey.id}" %></td>

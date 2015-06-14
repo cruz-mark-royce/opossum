@@ -1,4 +1,7 @@
 class SurveysController < ApplicationController
+  include ApplicationHelper
+  before_action :logged_in?, except: :index
+
   before_action :set_survey, only: [:show, :edit, :update, :destroy]
 
   # GET /surveys
@@ -46,8 +49,7 @@ class SurveysController < ApplicationController
   # POST /surveys
   # POST /surveys.json
   def create
-    @survey = Survey.new(survey_params)
-
+    @survey = Survey.new(survey_params, user_id: session[:user_id])
     respond_to do |format|
       if @survey.save
         format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
@@ -99,7 +101,7 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:user_id, :title, :description, :published,
+      params.require(:survey).permit(:title, :description, :published,
           questions_attributes: [:id, :survey_id, :order, :question_type, :value, :require, :_destroy,
           answers_attributes: [:id, :question_id, :submission_id, :value]]
       )
