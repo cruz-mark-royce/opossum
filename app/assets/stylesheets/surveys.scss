@@ -318,3 +318,8 @@ Header
   background-color: $delete-color;
   transform: translate(270%, 68%);
 }
+
+.required:before {
+  content: " *";
+    color: red;
+}
