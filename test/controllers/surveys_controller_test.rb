@@ -34,9 +34,9 @@ class SurveysControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update survey" do
+  test "should update survey and redirect to user_index path" do
     patch :update, id: @survey, survey: { description: @survey.description, published: @survey.published, title: @survey.title, user_id: @survey.user_id }
-    assert_redirected_to survey_path(assigns(:survey))
+    assert_redirected_to surveys_path
   end
 
   test "should destroy survey" do

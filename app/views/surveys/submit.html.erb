@@ -1,21 +1,44 @@
-<p>
-  <strong>By:</strong>
-  <%= @survey.user %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @survey.description %>
-</p>
-<% @survey.questions.order(:order).each do |q| %>
-  Question <%= q.order %><br/>
-  Question Type: <%= q.question_type %><br/>
-  Question: <%= q.value %><br/>
-  required: <%= q.require %><br/>
-  <hr>
+<%= form_for(@survey, url: "/take/#{@survey.id}") do |f| %>
+  <p>
+    <strong>By:</strong>
+    <%= @survey.user %>
+  </p>
+  <p>
+    <strong>Title:</strong>
+    <%= @survey.title %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @survey.description %>
+  </p>
+  <% counter = 0 %>
+  <% @questions.each do |q| %>
+    <% if q.require %>
+      <span class="required"/>
+    <% end %>
+    Question <%= q.order %>
+    <%= q.value %>
+        <% case q.question_type %>
+          <% when 'boolean' then %>
+            <%= radio_button_tag "survey[questions_attributes][#{q.id}][answers_attributes][#{@answers[counter].id}][value]", true %> yes
+            <%= radio_button_tag "survey[questions_attributes][#{q.id}][answers_attributes][#{@answers[counter].id}][value]", false %> no
+
+          <% when 'string'then %>
+            <%= text_field_tag "survey[questions_attributes][#{q.id}][answers_attributes][#{@answers[counter].id}][value]" %>
+
+          <% when 'text' then%>
+            <%= text_area_tag "survey[questions_attributes][#{q.id}][answers_attributes][#{@answers[counter].id}][value]" %>
+
+        <% end %>
+
+        <%= hidden_field_tag "survey[questions_attributes][#{q.id}][answers_attributes][#{@answers[counter].id}][question_id]", q.id %>
+        <%= hidden_field_tag "survey[questions_attributes][#{q.id}][answers_attributes][#{@answers[counter].id}][submission_id]", @submission.id %>
+
+    <hr>
+    <% counter += 1 %>
+  <% end %>
+  <%= f.submit 'Submit' %>
 <% end %>
-<br/>
-<%= link_to 'Back', surveys_path %>
+
+
+<%#fuck fields for, just use loops.%>

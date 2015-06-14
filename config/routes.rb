@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :surveys
   get 'mysurveys' => 'surveys#user_index'
   get 'take/:survey_id' => 'surveys#submit'
+  patch 'take/:survey_id' => 'surveys#submit'
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

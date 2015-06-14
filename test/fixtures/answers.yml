@@ -1,11 +1,46 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  question_id: 
-  submission_id: 
+  question_id: 1
+  submission_id: 1
   value: MyString
 
 two:
-  question_id: 
-  submission_id: 
+  question_id: 2
+  submission_id: 1
+  value: MyString
+
+three:
+  question_id: 3
+  submission_id: 1
+  value: MyString
+
+four:
+  question_id: 1
+  submission_id: 2
+  value: MyString
+
+five:
+  question_id: 2
+  submission_id: 2
+  value: MyString
+
+six:
+  question_id: 3
+  submission_id: 2
+  value: MyString
+
+seven:
+  question_id: 4
+  submission_id: 3
+  value: MyString
+
+eight:
+  question_id: 5
+  submission_id: 3
+  value: MyString
+
+nine:
+  question_id: 6
+  submission_id: 3
   value: MyString

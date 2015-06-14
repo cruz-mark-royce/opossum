@@ -9,6 +9,16 @@ class SurveysController < ApplicationController
 
   def submit
     @survey = Survey.find(params[:survey_id])
+    if request.patch?
+      if @survey.update(survey_params)
+        redirect_to surveys_path, notice: "Succesfully updated"
+      end
+    else
+      @submission = Submission.new(id: Submission.last.id + 1,survey_id: @survey.id)
+      @questions = @survey.questions.order(:order)
+      # @answer = Answer.new
+      @answers = @questions.map{|question| question.answers.build(question_id: question.id, submission_id: @submission.id)}
+    end
   end
 
   def user_index
@@ -25,6 +35,7 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
+    @survey.questions.build
   end
 
   # GET /surveys/1/edit
@@ -89,7 +100,12 @@ class SurveysController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
       params.require(:survey).permit(:user_id, :title, :description, :published,
-          questions_attributes: [:id, :survey_id, :order, :question_type, :value, :require, :_destroy]
+          questions_attributes: [:id, :survey_id, :order, :question_type, :value, :require, :_destroy,
+          answers_attributes: [:id, :question_id, :submission_id, :value]]
       )
+    end
+
+    def answer_params
+
     end
 end
