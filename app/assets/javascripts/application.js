@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
+$(function(){
+$('.create-button-add').click(function() {
+	alert('yay');
+});
+});

@@ -130,12 +130,9 @@ select {
 .create-button {
   font-family: 'Open Sans', sans-serif;
   background-color: $primary-color;
-  margin-top: 2em;
   margin-bottom: 1em;
   display: block;
-  margin: 0 auto;
-  margin-top: 2em;
-  margin-bottom: 1em;background-color: $primary-color;
+  margin: 1em auto;
 }
 
 .question-field .create-button {
@@ -288,5 +285,12 @@ Header
   color: white;
 }
 
+.create-button-add {
+  position: absolute;
+  background-color: $delete-color;
+  transform: translate(100%, 68%);
+}
 
-
+.update-survey {
+  margin-bottom: 1em;
+}

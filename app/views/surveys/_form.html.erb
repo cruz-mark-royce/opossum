@@ -14,19 +14,17 @@
     <%= f.text_field :user_id %>
   </div> -->
   <div>
-    <form class="pure-form">
-      <fieldset class="survey-field">
-        <div class="field survey-title">
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-        </div>
-        <div class="field survey-desc">
-          <%= f.label :description %>
-          <%= f.text_field :description %>
-        </div>
-        <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
-      </fieldset>
-    </form>
+  <fieldset class="survey-field pure-form">
+  <div class="field survey-title">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field survey-desc">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
+  </fieldset>
   </div>
   <h2>Questions</h2>
   <%=  f.fields_for(:questions) do |ff| %>
@@ -61,8 +59,10 @@
       <%= ff.check_box :_destroy, {class: 'checkbox'} %>
     </div>
     <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
+    <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
    </fieldset>
-   
+
+  
   <% end %>
 
   <div class="actions">
