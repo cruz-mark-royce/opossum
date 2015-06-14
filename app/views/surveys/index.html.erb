@@ -2,9 +2,9 @@
 <div class="survey-list-container">
   <% @surveys.each do |survey| %>
   <div class="survey-card">
-      <div class="survey-data"><span class="survey-data-content"><strong>User:</strong></span> <%= survey.user %></div>
-      <div class="survey-data"><span class="survey-data-content"><strong>Title:</strong></span> <%= survey.title %></div>
-      <div class="survey-data"><span class="survey-data-content"><strong>Description:</strong></span> <%= survey.description %></div>
+      <div class="survey-data"><span class="survey-data-content"><strong>User:</strong></span> <%= survey.user.name.capitalize %></div>
+      <div class="survey-data"><span class="survey-data-content"><strong>Title:</strong></span> <%= survey.title.capitalize %></div>
+      <div class="survey-data"><span class="survey-data-content"><strong>Description:</strong></span> <%= survey.description.capitalize %></div>
       <div class="survey-data"><span class="survey-data-content"><strong>Published:</strong></span> <%= survey.published %></div>
 
       <ul class="survey-list-actions">
