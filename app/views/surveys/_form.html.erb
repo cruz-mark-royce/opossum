@@ -35,35 +35,34 @@
     </div> -->
     <script type="text/html" id="question-template">
       <div>
-         <fieldset class="question-field pure-form">
-    <div class="field order-container">
-      <%= ff.label :order %><br>
-      <%= ff.number_field :order, {class: "order"} %>
-    </div>
-    <div class="field type-container">
-      <%= ff.label :question_type %>
-      <%= ff.select(:question_type,
-              {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'},
-              {include_blank: true},
-              {class: "type-select"}
-          ) %>
-    </div>
-    <div class="field value-container">
-      <%= ff.label :value %>
-      <%= ff.text_field :value, {class: "enter-question"} %>
-    </div>
-    <div class="field require">
-      <%= ff.label :require, "Required" %>
-      <%= ff.check_box :require, {class: 'checkbox'} %>
-    </div>
-    <div class="field require">
-      <%= ff.label :_destroy, "Delete" %>
-      <%= ff.check_box :_destroy, {class: 'checkbox'} %>
-    </div>
-    <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
-    <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
-    <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
-   </fieldset>
+      <fieldset class="question-field pure-form">
+        <div class="field order-container">
+          <label for="survey_questions_attributes_2_order">Order</label><br>
+          <input class="order" type="number" name="survey[questions_attributes][2][order]" id="survey_questions_attributes_2_order" />
+        </div>
+        <div class="field type-container">
+          <label for="survey_questions_attributes_2_question_type">Question type</label>
+          <select class="type-select" name="survey[questions_attributes][2][question_type]" id="survey_questions_attributes_2_question_type"><option value=""></option>
+            <option value="boolean">Yes/No</option>
+            <option value="string">Short Answer</option>
+            <option value="text">Long Answer</option></select>
+        </div>
+        <div class="field value-container">
+          <label for="survey_questions_attributes_2_value">Value</label>
+          <input class="enter-question" type="text" name="survey[questions_attributes][2][value]" id="survey_questions_attributes_2_value" />
+        </div>
+        <div class="field require">
+          <label for="survey_questions_attributes_2_require">Required</label>
+          <input name="survey[questions_attributes][2][require]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][require]" id="survey_questions_attributes_2_require" />
+        </div>
+        <div class="field require">
+          <label for="survey_questions_attributes_2__destroy">Delete</label>
+          <input name="survey[questions_attributes][2][_destroy]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][_destroy]" id="survey_questions_attributes_2__destroy" />
+        </div>
+        <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
+        <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
+        <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
+      </fieldset>
       </div>
    </script>
    

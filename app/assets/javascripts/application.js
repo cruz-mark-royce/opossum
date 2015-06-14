@@ -35,8 +35,9 @@ $('.create-button-add').click(function() {
 	console.log(compiledTemplate());
 // Render the template out to our main div tag:
 	$('.questions-container').append(compiledTemplate());
+	
 	$(function(){
-$('.create-button-remove').click(function() {
+		$('.create-button-remove').click(function() {
 	$(this).parent().remove();
 });
 });
