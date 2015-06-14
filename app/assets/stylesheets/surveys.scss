@@ -53,7 +53,7 @@ Survey Information
 
 h1 {
   text-align: center;
-  margin: 1em 0;
+  margin: 4em 0 1em 0;
 }
 
 .survey-field {
@@ -130,12 +130,9 @@ select {
 .create-button {
   font-family: 'Open Sans', sans-serif;
   background-color: $primary-color;
-  margin-top: 2em;
   margin-bottom: 1em;
   display: block;
-  margin: 0 auto;
-  margin-top: 2em;
-  margin-bottom: 1em;background-color: $primary-color;
+  margin: 1em auto;
 }
 
 .question-field .create-button {
@@ -288,6 +285,7 @@ Header
   color: white;
 }
 
+<<<<<<< HEAD
 //Styling for the survey show page
 .survey-card-show{
   width: 50%;
@@ -308,4 +306,20 @@ Header
 
 #show-page-edit-button{
   margin-right: 1em;
+=======
+.create-button-add {
+  position: absolute;
+  background-color: $general-color;
+  transform: translate(100%, 68%);
+}
+
+.update-survey {
+  margin-bottom: 1em;
+}
+
+.create-button-remove {
+  position: absolute;
+  background-color: $delete-color;
+  transform: translate(270%, 68%);
+>>>>>>> b2a218ac643bff0327d3abdb7ca3e55009283934
 }
