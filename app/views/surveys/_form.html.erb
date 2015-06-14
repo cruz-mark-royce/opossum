@@ -27,11 +27,46 @@
   </fieldset>
   </div>
   <h2>Questions</h2>
+  <div class="questions-container"> 
   <%=  f.fields_for(:questions) do |ff| %>
     <!-- <div class="field">
       <%= ff.label :survey_id %><br>
       <%= ff.text_field :survey_id %>
     </div> -->
+    <script type="text/html" id="question-template">
+      <div>
+         <fieldset class="question-field pure-form">
+    <div class="field order-container">
+      <%= ff.label :order %><br>
+      <%= ff.number_field :order, {class: "order"} %>
+    </div>
+    <div class="field type-container">
+      <%= ff.label :question_type %>
+      <%= ff.select(:question_type,
+              {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'},
+              {include_blank: true},
+              {class: "type-select"}
+          ) %>
+    </div>
+    <div class="field value-container">
+      <%= ff.label :value %>
+      <%= ff.text_field :value, {class: "enter-question"} %>
+    </div>
+    <div class="field require">
+      <%= ff.label :require, "Required" %>
+      <%= ff.check_box :require, {class: 'checkbox'} %>
+    </div>
+    <div class="field require">
+      <%= ff.label :_destroy, "Delete" %>
+      <%= ff.check_box :_destroy, {class: 'checkbox'} %>
+    </div>
+    <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
+    <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
+    <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
+   </fieldset>
+      </div>
+   </script>
+   
    
    <fieldset class="question-field pure-form">
     <div class="field order-container">
@@ -60,12 +95,16 @@
     </div>
     <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
     <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
+    <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
    </fieldset>
-
-  
+   
   <% end %>
+    </div>
 
   <div class="actions">
     <%= f.submit :class=> 'pure-button pure-button-primary update-survey'%>
   </div>
+  
+  
 <% end %>
+  

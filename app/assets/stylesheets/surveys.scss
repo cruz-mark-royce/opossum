@@ -287,10 +287,16 @@ Header
 
 .create-button-add {
   position: absolute;
-  background-color: $delete-color;
+  background-color: $general-color;
   transform: translate(100%, 68%);
 }
 
 .update-survey {
   margin-bottom: 1em;
+}
+
+.create-button-remove {
+  position: absolute;
+  background-color: $delete-color;
+  transform: translate(270%, 68%);
 }
