@@ -14,30 +14,64 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function(){
-$('.create-button-add').click(function() {
-	$(function templateMaker() {
-	var templateString = $('#question-template').html();
+$(function () {
+	var count = 0;
+	$('.question-field').each(function () {
+		console.log('count = '+count);
+		$(this).find('.order').val(count).html();	
+		count++;		
+	});
+	count = 0;
+})
 
-	// Compile the template as per usual:
-	var compiledTemplate = _.template(templateString, { variable: 'm' });
-	
-	//console.log('ONE'+compiledTemplate());
-// Render the template out to our main div tag:
-	$('.questions-container').append(compiledTemplate());
-	
-	//console.log('TWO'+compiledTemplate());
+
+
+
+$(function(){
+	$('.create-button-add').click(function() {
+		$(function templateMaker() {
+			var templateString = $('#question-template').html();
 		
-		$('.create-button-remove').click(function() {
-			$(this).parent().remove();
+			var uniqueNum = 0;
+		
+			$('.question-field').last().each(function () {
+				$(this).find('input').each(function () {
+					if (uniqueNum<parseInt($(this).attr('name').match(/\d+/)))
+					uniqueNum = parseInt($(this).attr('name').match(/\d+/));
+				});
+			});
+			
+			uniqueNum = uniqueNum+1;
+			// Compile the template as per usual:
+			var compiledTemplate = _.template(templateString.replace(/\[[0-9]+\]/g, uniqueNum), { variable: 'm' });
+			
+			//console.log('ONE'+compiledTemplate());
+			$('.questions-container').append(compiledTemplate());
+			
+			$(function () {
+				var count = 0;
+				$('.question-field').each(function () {
+					console.log('count = '+count);
+					$(this).find('.order').val(count).html();	
+					count++;		
+				});
+				count = 0;
+			})
+			
+			//console.log('TWO'+compiledTemplate());
+				
+			$('.create-button-remove').click(function() {
+				$(this).parent().find('input:checkbox').prop('checked', true);
+				$(this).parent().css('display','none');
+			});
 		});
-});
+	});
 });
 	
-});
-
+	
 $(function(){
-$('.create-button-remove').click(function() {
-	$(this).parent().remove();
-});
+	$('.create-button-remove').click(function() {
+		$(this).parent().find('.delete').prop('checked', true);
+		$(this).parent().css('display','none');
+	});
 });

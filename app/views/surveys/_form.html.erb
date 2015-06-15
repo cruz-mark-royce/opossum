@@ -56,9 +56,9 @@
       <%= ff.label :require, "Required" %>
       <%= ff.check_box :require, {class: 'checkbox'} %>
     </div>
-    <div class="field require">
+    <div class="field require delete-container">
       <%= ff.label :_destroy, "Delete" %>
-      <%= ff.check_box :_destroy, {class: 'checkbox'} %>
+      <%= ff.check_box :_destroy, {class: 'checkbox delete'} %>
     </div>
     <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
     <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
@@ -88,7 +88,7 @@
       <fieldset class="question-field pure-form">
         <div class="field order-container">
           <label for="survey_questions_attributes_2_order">Order</label><br>
-          <input class="order" type="number" name="survey[questions_attributes][2][order]" id="survey_questions_attributes_2_order" />
+          <input class="order" value="0" type="number" name="survey[questions_attributes][2][order]" id="survey_questions_attributes_2_order" />
         </div>
         <div class="field type-container">
           <label for="survey_questions_attributes_2_question_type">Question type</label>
@@ -103,11 +103,11 @@
         </div>
         <div class="field require">
           <label for="survey_questions_attributes_2_require">Required</label>
-          <input name="survey[questions_attributes][2][require]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][require]" id="survey_questions_attributes_2_require" />
+          <input name="survey[questions_attributes][10][require]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][require]" id="survey_questions_attributes_2_require" />
         </div>
-        <div class="field require">
+        <div class="field require delete-container">
           <label for="survey_questions_attributes_2__destroy">Delete</label>
-          <input name="survey[questions_attributes][2][_destroy]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][_destroy]" id="survey_questions_attributes_2__destroy" />
+          <input name="survey[questions_attributes][2][_destroy]" type="hidden" value="0" /><input class="checkbox delete" type="checkbox" value="1" name="survey[questions_attributes][2][_destroy]" id="survey_questions_attributes_2__destroy" />
         </div>
         <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
         <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
