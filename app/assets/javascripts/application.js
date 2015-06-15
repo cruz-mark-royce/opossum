@@ -52,7 +52,7 @@ $(function(){
 			$(function () {
 				var count = 0;
 				$('.question-field').each(function () {
-					console.log('count = '+count);
+					//console.log('count = '+count);
 					$(this).find('.order').val(count).html();	
 					count++;		
 				});
@@ -76,14 +76,6 @@ $(function(){
 				
 				});		
 			});
-	// Compile the template as per usual:
-	var compiledTemplate = _.template(templateString, { variable: 'm' });
-
-	//console.log('ONE'+compiledTemplate());
-// Render the template out to our main div tag:
-	$('.questions-container').append(compiledTemplate());
-
-	//console.log('TWO'+compiledTemplate());
 
 		$('.create-button-remove').click(function() {
 			$(this).parent().remove();
@@ -118,6 +110,9 @@ $(function () {
 
 $(function(){
 	if ($('#notice').text()!== '') {
-		alert($('#notice').text());
+		$('.header').append('<div class="notice"><h1>'+$('#notice').text()+'</h1></div>');
+		setTimeout(function () {
+			$('.notice').remove();	
+		},1500);
 	}
 });
