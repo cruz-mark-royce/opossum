@@ -1,10 +1,7 @@
 class Question < ActiveRecord::Base
   belongs_to :survey
 
-  attr_writer :answers_attributes
-
   has_many :answers
-  accepts_nested_attributes_for :answers
 
   validates :survey_id, presence: true
   validate :valid_question_type
