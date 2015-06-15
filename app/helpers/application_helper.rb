@@ -12,8 +12,10 @@ module ApplicationHelper
     end
   end
 
-  def logged
-
+  def logged_in_at_all
+    if session[:user_id] == nil
+      redirect_to root_path, notice: "Already logged out :p"
+    end
   end
 
 end
