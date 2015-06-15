@@ -1,0 +1,22 @@
+<h1>
+  <%= @survey.title %>
+<h1/>
+<br/>
+<h2>
+  <%= @survey.description %>
+</h2>
+<br/>
+<% @questions.each do |question| %> <%# This loops over every question %>
+  <h3>
+    Question <%= question.order %> <%# This piece spits out the question number %>: <%= question.value %> <%# piece spits out the actual question %>
+  </h3>
+
+  <% question.answers.each do |answer| %> <%# This loops over each answer for that question %>
+
+    <%= answer.value %> <%# This puts out one answer %>
+
+    <br/>
+
+  <% end %>
+
+<% end %>

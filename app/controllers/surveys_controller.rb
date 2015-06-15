@@ -10,6 +10,8 @@ class SurveysController < ApplicationController
 
   before_action :set_submission, only: [:take, :submit]
 
+  before_action :set_questions, only: :results
+
   def index
     @surveys = Survey.all
   end
@@ -116,6 +118,10 @@ class SurveysController < ApplicationController
 
   def set_user
     @user = User.find(session[:user_id]) rescue nil
+  end
+
+  def set_questions
+    @questions = @survey.questions.order(:order)
   end
 
   def survey_params
