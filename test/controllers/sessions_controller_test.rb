@@ -77,9 +77,10 @@ class SessionsControllerTest < ActionController::TestCase
     assert_equal "Log out successful.", flash[:notice]
   end
 
-  # test "should not get destroy" do
-  #   get :destroy
-  #   assert_response :success
-  # end
+  test "should not get destroy if not signed" do
+    nil_setup
+    get :destroy
+    assert_equal "Already logged out :p", flash[:notice]
+  end
 
 end
