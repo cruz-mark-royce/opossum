@@ -17,14 +17,12 @@
 $(function () {
 	var count = 0;
 	$('.question-field').each(function () {
-		console.log('count = '+count);
+		//console.log('count = '+count);
 		$(this).find('.order').val(count).html();	
 		count++;		
 	});
 	count = 0;
 })
-
-
 
 
 $(function(){
@@ -49,6 +47,10 @@ $(function(){
 			$('.questions-container').append(compiledTemplate());
 			
 			$(function () {
+				$('.questions-container').sortable();
+			})
+			
+			$(function () {
 				var count = 0;
 				$('.question-field').each(function () {
 					console.log('count = '+count);
@@ -64,6 +66,17 @@ $(function(){
 				$(this).parent().find('input:checkbox').prop('checked', true);
 				$(this).parent().css('display','none');
 			});
+			$('.questions-container').mouseup(function () {
+				setTimeout(function () {var count = 0;
+				$('.question-field').each(function () {
+					console.log('count = '+count);
+					$(this).find('.order').val(count).html();	
+					count++;		
+				});
+				count = 0;
+				
+				});		
+			});
 		});
 	});
 });
@@ -73,5 +86,22 @@ $(function(){
 	$('.create-button-remove').click(function() {
 		$(this).parent().find('.delete').prop('checked', true);
 		$(this).parent().css('display','none');
+	});
+});
+
+$(function () {
+	$('.questions-container').sortable();
+})
+
+$(function () {
+	$('.questions-container').mouseup(function () {
+		setTimeout(function () {var count = 0;
+			$('.question-field').each(function () {
+				console.log('count = '+count);
+				$(this).find('.order').val(count).html();	
+				count++;		
+			});
+			count = 0;
+		});		
 	});
 });
