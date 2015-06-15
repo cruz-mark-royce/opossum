@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
   include ApplicationHelper
-  before_action :logged_in?, except: :index
+  before_action :logged_in?, except: [:index, :take, :submit]
 
   before_action :set_survey, only: [:show, :edit, :update, :destroy, :take, :submit]
 
@@ -37,29 +37,25 @@ class SurveysController < ApplicationController
 
   def publish
   end
-  # GET /surveys/1
-  # GET /surveys/1.json
+
   def show
   end
 
-  # GET /surveys/new
   def new
     @survey = Survey.new
     @survey.questions.build
   end
 
-  # GET /surveys/1/edit
   def edit
     @survey.questions.build
   end
 
-  # POST /surveys
-  # POST /surveys.json
   def create
-    @survey = Survey.new(survey_params, user_id: session[:user_id])
+    @survey = Survey.new(survey_params)
+    @survey.user_id = session[:user_id]
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to @survey, notice: 'Survey was successfully created.' }
+        format.html { redirect_to mysurveys_path, notice: 'Survey was successfully created.' }
         format.json { render :show, status: :created, location: @survey }
       else
         format.html { render :new }
@@ -116,7 +112,7 @@ class SurveysController < ApplicationController
     end
 
     def survey_params
-      params.require(:survey).permit(:title, :description, :published,
+      params.require(:survey).permit(:user_id, :title, :description, :published,
           questions_attributes: [:id, :survey_id, :order, :question_type,
               :value, :require, :_destroy,
           ]

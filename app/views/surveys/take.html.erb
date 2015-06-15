@@ -21,7 +21,6 @@
       <% end %>
       Question <%= q.order %>
       <%= q.value %>
-
       <% case q.question_type %>
       <% when 'boolean' then %>
         <%= ff.radio_button :value, true %> yes
