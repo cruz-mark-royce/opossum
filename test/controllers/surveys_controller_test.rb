@@ -49,7 +49,7 @@ class SurveysControllerTest < ActionController::TestCase
   end
 
   test "results page" do
-    get :results
+    get :results, id: @survey
     assert_response :success
   end
 

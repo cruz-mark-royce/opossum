@@ -4,7 +4,9 @@ class SurveysController < ApplicationController
 
   # before_action :logged_in, except: [:new, :create, :index, :take, :submit]
 
-  before_action :set_survey, only: [:show, :edit, :update, :destroy, :take, :submit]
+  before_action :set_user
+
+  before_action :set_survey, only: [:show, :edit, :update, :destroy, :take, :submit, :results]
 
   before_action :set_submission, only: [:take, :submit]
 
@@ -110,6 +112,10 @@ class SurveysController < ApplicationController
   def set_submission
     submission_id = Submission.last.id + 1 rescue 0
     @submission = Submission.new(survey_id: @survey.id)
+  end
+
+  def set_user
+    @user = User.find(session[:user_id]) rescue nil
   end
 
   def survey_params
