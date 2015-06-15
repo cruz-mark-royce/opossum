@@ -11,19 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class = "new-user-form-container">
+
+    <form class = "new-user-form">
+      <fieldset class = "fieldset">
+
+        <div class="field">
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :email %><br>
+          <%= f.text_field :email %>
+        </div>
+        <div class="field">
+          <%= f.label :password %><br>
+          <%= f.text_field :password %>
+        </div>
+
+          <%= f.submit :class => "create-button pure-button pure-button-primary" %>
+
+      </fieldset>
+    </form>
+
+
   </div>
 <% end %>
