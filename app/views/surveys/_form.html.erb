@@ -29,7 +29,6 @@
   <h2>Questions</h2>
   <div class="questions-container"> 
   <%=  f.fields_for(:questions) do |ff| %>
-<<<<<<< HEAD
     <!-- <div class="field">
       <%= ff.label :survey_id %><br>
       <%= ff.text_field :survey_id %>
@@ -84,23 +83,6 @@
     <div class="field value-container">
       <%= ff.label :value %>
       <%= ff.text_field :value, {class: "enter-question"} %>
-=======
-    <div class="field">
-      <%= ff.label :order %><br>
-      <%= ff.number_field :order, {class: "EXAMPLE"} %>
-    </div>
-    <div class="field">
-      <%= ff.label :question_type %><br>
-      <%= ff.select :question_type,
-              {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'},
-              {include_blank: true},
-              {class: "EXAMPLE"}
-      %>
-    </div>
-    <div class="field">
-      <%= ff.label :value, "Question" %><br>
-      <%= ff.text_field :value %>
->>>>>>> test
     </div>
     <div class="field require">
       <%= ff.label :require, "Required" %>
@@ -117,25 +99,18 @@
    
   <% end %>
     </div>
-
-<<<<<<< HEAD
+  <div class="action-container">
   <div class="actions">
     <%= f.submit :class=> 'pure-button pure-button-primary update-survey'%>
   </div>
-  
-  
-=======
-
 
   <div class="actions">
-    <%= f.submit "Publish" %>
+    <%= f.submit "Publish", :class=> 'pure-button pure-button-primary publish' %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Unpublish", data: { confirm: "Are you sure?" } %>
+    <%= f.submit "Unpublish", data: { confirm: "Are you sure?" }, :class=> 'pure-button pure-button-primary unpublish' %>
   </div>
-
-
->>>>>>> test
+  </div>
 <% end %>
   

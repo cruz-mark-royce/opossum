@@ -1,7 +1,7 @@
 class Survey < ActiveRecord::Base
   belongs_to :user
 
-  attr_writer :questions_attributes
+
 
   has_many :questions
   accepts_nested_attributes_for :questions,

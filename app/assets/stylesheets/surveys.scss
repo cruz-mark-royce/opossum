@@ -186,6 +186,10 @@ fieldset {
 
 .update-survey {
   background-color: $primary-color;
+  
+}
+
+.action-container {
   @include center-horizontal;
 }
 
@@ -322,4 +326,13 @@ Header
 .required:before {
     content: " *";
     color: red;
+}
+
+.actions {
+  display: inline-block;
+}
+
+.publish, .unpublish, .update-survey {
+  margin-bottom: 1em;
+  background-color: $general-color;
 }
