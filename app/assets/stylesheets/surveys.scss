@@ -186,7 +186,7 @@ fieldset {
 
 .update-survey {
   background-color: $primary-color;
-  
+  margin-bottom: 1em;
 }
 
 .action-container {
@@ -308,9 +308,8 @@ Header
 }
   
 .create-button-add {
-  position: absolute;
   background-color: $general-color;
-  transform: translate(100%, 68%);
+  margin-bottom: 1em;
 }
 
 .update-survey {
@@ -320,7 +319,7 @@ Header
 .create-button-remove {
   position: absolute;
   background-color: $delete-color;
-  transform: translate(270%, 68%);
+  transform: translate(100%, 68%);
 }
 
 .required:before {
@@ -332,7 +331,7 @@ Header
   display: inline-block;
 }
 
-.publish, .unpublish, .update-survey {
+.publish, .unpublish {
   margin-bottom: 1em;
   background-color: $general-color;
 }
