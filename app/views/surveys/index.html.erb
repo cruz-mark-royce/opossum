@@ -1,6 +1,8 @@
 <h1>Listing Surveys</h1>
+
 <div class="survey-list-container">
   <% @surveys.each do |survey| %>
+
   <div class="survey-card">
 
       <div class="survey-data"><span class="survey-data-content"><strong>User:</strong></span> <%= survey.user.name.capitalize %></div>
