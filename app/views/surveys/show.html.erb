@@ -9,8 +9,10 @@
   <div class="survey-card-show">
 
     <div class = "survey-creator">
-      <strong>Created by </strong>
-      <%= @survey.user.name %>
+      <strong>
+        Created by
+        <%= @survey.user.name %>
+      </strong>
     </div><br>
 
     <div class = "survey-description">
@@ -22,39 +24,44 @@
       <strong>Published:</strong>
       <%= @survey.published %>
     </div><br>
-    <% @survey.questions.order(:order).each do |q| %>
-        Question <%= q.order %><br/>
-        Question Type:
+    <hr><br/>
+
+          <% @survey.questions.order(:order).each do |q| %>
+          <strong>Question <%= q.order %><br/><br/></strong>
 
 
+        <strong>Question Type:</strong>
 
-        <% case q.question_type %>
-        <% when "string" %>
-          Short Answer
-        <% when "boolean" %>
-          Yes/No
-        <% when "text" %>
-          Long Answer
-        <% end %>
+          <% case q.question_type %>
+          <% when "string" %>
+            Short Answer
+          <% when "boolean" %>
+            Yes/No
+          <% when "text" %>
+            Long Answer
+          <% end %><br/>
 
 
 
 
         <br/>
-        Question: <%= q.value %><br/>
-        required:
+        <strong>Question:</strong>
+        <%= q.value %><br/><br/>
+
+        <strong>Required: </strong>
 
         <% if q.require == true %>
           Yes
         <% else %>
           No
         <% end %>
-
+        <br/><br/>
         <hr>
+        <br/>
       <% end %>
     <div class = "survey-view-page-actions-container">
 
-      <ul class="survey-list-actions">
+      <ul class="view-survey-page-list-actions">
 
         <li class="survey-list-button" id = "show-page-edit-button"><%= link_to 'Edit', edit_survey_path(@survey), {class: 'pure-button survey-edit'} %></li>
 
