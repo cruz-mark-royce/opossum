@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'take/:id' => 'surveys#take'
   post 'submit/:id' => 'surveys#submit'
   get 'error' => 'surveys#error'
+  get 'results/:id' => 'surveys#results'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -47,4 +47,10 @@ class SurveysControllerTest < ActionController::TestCase
 
     assert_redirected_to surveys_path
   end
+
+  test "results page" do
+    get :results
+    assert_response :success
+  end
+
 end

@@ -97,6 +97,10 @@ class SurveysController < ApplicationController
   def error
   end
 
+  def results
+
+  end
+
   private
 
   def set_survey
