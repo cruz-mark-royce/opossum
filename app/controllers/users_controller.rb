@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ApplicationHelper
 
-  before_action :logged_in, except: [:index, :create]
+  before_action :logged_in, except: [:index, :create, :new]
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
