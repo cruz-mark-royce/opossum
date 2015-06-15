@@ -1,14 +1,18 @@
 module ApplicationHelper
-  def logged_in
-    unless session[:user_id]
-      redirect_to login_path, notice: 'You must be logged in before accessig this site.'
+
+  def logged_out
+    if session[:user_id]
+      redirect_to root_path, notice: 'You must be logged in before accessing this site.'
     end
   end
 
-  def not_logged_in
-    unless session[:user_id]
-      redirect_to login_path, notice: 'Action denied.'
+  def logged_in
+    if session[:user_id].to_s != params[:id]
+      redirect_to root_path, notice: "You do not have that authorization :p"
     end
+  end
+
+  def logged
 
   end
 

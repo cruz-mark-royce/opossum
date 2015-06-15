@@ -1,9 +1,9 @@
 class Question < ActiveRecord::Base
-  belongs_to :survey
+  belongs_to :survey, inverse_of: :questions
 
   has_many :answers
 
-  validates :survey_id, presence: true
+  validates :survey, presence: true
   validate :valid_question_type
   validates :value, presence: true
   validates :order, numericality: { only_integer: true }, uniqueness: {scope: :survey_id}, :on => :create

@@ -2,7 +2,7 @@ class SurveysController < ApplicationController
 
   include ApplicationHelper
 
-  before_action :logged_in, except: [:index, :take, :submit]
+  # before_action :logged_in, except: [:new, :create, :index, :take, :submit]
 
   before_action :set_survey, only: [:show, :edit, :update, :destroy, :take, :submit]
 

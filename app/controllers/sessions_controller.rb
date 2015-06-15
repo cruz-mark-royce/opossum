@@ -1,4 +1,11 @@
 class SessionsController < ApplicationController
+
+  include ApplicationHelper
+
+  before_action :logged_out, only: [:new, :create]
+
+  before_action :logged_in, only: [:destroy]
+
   def new
   end
 
@@ -8,7 +15,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       flash[:notice] = "Log in successful."
     elsif user
-      flash[:notice] = "Password incorrect."
+      flash[:notice] = "Incorrect password."
     else
       flash[:notice] = "ACCESS DENIED"
     end

@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
+
   include ApplicationHelper
 
-  before_action :logged_in, except: [:index, :create, :new]
+  before_action :logged_out, only: [:new, :create]
+
+  before_action :logged_in, only: [:edit, :destroy, :update]
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -49,7 +52,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
