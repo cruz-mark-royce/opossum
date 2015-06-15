@@ -20,7 +20,7 @@
         <td><%= survey.published %></td>
         <td><%= link_to 'Take', survey %></td>
         <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-        <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', survey, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
