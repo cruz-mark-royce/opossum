@@ -1,26 +1,31 @@
-  <p>
-    <strong>By:</strong>
-    <%= @survey.user.name.capitalize %>
-  </p>
-  <p>
-    <strong>Title:</strong>
-    <%= @survey.title %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= @survey.description %>
-  </p>
+<p>
+  <strong>By:</strong>
+  <%= @survey.user.name.capitalize %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @survey.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @survey.description %>
+</p>
 
-  <%= form_for(@submission, url: "/submit/#{@survey.id}") do |f| %>
+<%= form_for(@submission, url: "/submit/#{@survey.id}") do |f| %>
 
-<% counter = 0 %>
+  <% counter = 0 %>
+
   <% @survey.questions.each do |q| %>
     <%= f.fields_for(:answers) do |ff| %>
+
       <% if q.require %>
         <span class="required"/>
       <% end %>
+
       Question <%= q.order %>
+
       <%= q.value %>
+
       <% case q.question_type %>
       <% when 'boolean' then %>
         <%= ff.radio_button :value, true %> yes
@@ -32,10 +37,13 @@
       <% end %>
 
       <%= hidden_field_tag "submission[answers_attributes][#{counter}][question_id]", q.id %>
+
       <% counter += 1 %>
       <hr>
     <% end %>
 
   <% end %>
+
   <%= f.submit 'Submit' %>
+
 <% end %>
