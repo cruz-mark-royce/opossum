@@ -24,7 +24,6 @@ $(function () {
 	count = 0;
 })
 
-
 $(function(){
 	$('.create-button-add').click(function() {
 		$(function templateMaker() {
@@ -77,11 +76,22 @@ $(function(){
 				
 				});		
 			});
+	// Compile the template as per usual:
+	var compiledTemplate = _.template(templateString, { variable: 'm' });
+
+	//console.log('ONE'+compiledTemplate());
+// Render the template out to our main div tag:
+	$('.questions-container').append(compiledTemplate());
+
+	//console.log('TWO'+compiledTemplate());
+
+		$('.create-button-remove').click(function() {
+			$(this).parent().remove();
 		});
 	});
 });
-	
-	
+});
+
 $(function(){
 	$('.create-button-remove').click(function() {
 		$(this).parent().find('.delete').prop('checked', true);
@@ -104,4 +114,11 @@ $(function () {
 			count = 0;
 		});		
 	});
+});
+});
+
+$(function(){
+	if ($('#notice').text()!== '') {
+		alert($('#notice').text());
+	}
 });

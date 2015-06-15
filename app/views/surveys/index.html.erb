@@ -1,6 +1,8 @@
 <h1>Listing Surveys</h1>
+
 <div class="survey-list-container">
   <% @surveys.each do |survey| %>
+
   <div class="survey-card">
 
       <div class="survey-data"><span class="survey-data-content"><strong>User:</strong></span> <%= survey.user.name.capitalize %></div>
@@ -12,8 +14,11 @@
 
       <ul class="survey-list-actions">
         <li class="survey-list-button"><%= link_to 'Show', survey, {class: 'pure-button survey-show'} %></li>
-        <li class="survey-list-button"><%= link_to 'Edit', edit_survey_path(survey), {class: 'pure-button survey-edit'} %></li>
-        <li class="survey-list-button"><%= link_to 'Destroy', survey, :class=> 'pure-button survey-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <li class="survey-list-button"><%= link_to 'Take', "/take/#{survey.id}", {class: 'pure-button survey-take'} %></li>
+        <% if session[:user_id] %>
+          <li class="survey-list-button"><%= link_to 'Edit', edit_survey_path(survey), {class: 'pure-button survey-edit'} %></li>
+          <li class="survey-list-button"><%= link_to 'Destroy', survey, :class=> 'pure-button survey-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% end %>
       </ul>
   </div>
   <% end %>
