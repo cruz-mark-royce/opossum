@@ -3,6 +3,7 @@ require 'test_helper'
 class SurveysControllerTest < ActionController::TestCase
   setup do
     @survey = surveys(:one)
+    session[:user_id] = 1
   end
 
   test "should get index" do
@@ -21,7 +22,7 @@ class SurveysControllerTest < ActionController::TestCase
       post :create, survey: { description: @survey.description, published: @survey.published, title: @survey.title, user_id: @survey.user_id }
     end
 
-    assert_redirected_to survey_path(assigns(:survey))
+    assert_redirected_to mysurveys_path
   end
 
   test "should show survey" do
