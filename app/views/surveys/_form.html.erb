@@ -27,45 +27,13 @@
   </fieldset>
   </div>
   <h2>Questions</h2>
+  
   <div class="questions-container"> 
   <%=  f.fields_for(:questions) do |ff| %>
     <!-- <div class="field">
       <%= ff.label :survey_id %><br>
       <%= ff.text_field :survey_id %>
     </div> -->
-    <script type="text/html" id="question-template">
-      <div>
-      <fieldset class="question-field pure-form">
-        <div class="field order-container">
-          <label for="survey_questions_attributes_2_order">Order</label><br>
-          <input class="order" type="number" name="survey[questions_attributes][2][order]" id="survey_questions_attributes_2_order" />
-        </div>
-        <div class="field type-container">
-          <label for="survey_questions_attributes_2_question_type">Question type</label>
-          <select class="type-select" name="survey[questions_attributes][2][question_type]" id="survey_questions_attributes_2_question_type"><option value=""></option>
-            <option value="boolean">Yes/No</option>
-            <option value="string">Short Answer</option>
-            <option value="text">Long Answer</option></select>
-        </div>
-        <div class="field value-container">
-          <label for="survey_questions_attributes_2_value">Value</label>
-          <input class="enter-question" type="text" name="survey[questions_attributes][2][value]" id="survey_questions_attributes_2_value" />
-        </div>
-        <div class="field require">
-          <label for="survey_questions_attributes_2_require">Required</label>
-          <input name="survey[questions_attributes][2][require]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][require]" id="survey_questions_attributes_2_require" />
-        </div>
-        <div class="field require">
-          <label for="survey_questions_attributes_2__destroy">Delete</label>
-          <input name="survey[questions_attributes][2][_destroy]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][_destroy]" id="survey_questions_attributes_2__destroy" />
-        </div>
-        <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
-        <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
-        <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
-      </fieldset>
-      </div>
-   </script>
-   
    
    <fieldset class="question-field pure-form">
     <div class="field order-container">
@@ -93,24 +61,55 @@
       <%= ff.check_box :_destroy, {class: 'checkbox'} %>
     </div>
     <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
-    <button type="button" class="create-button-add pure-button pure-button-primary">+</button>
     <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
    </fieldset>
    
   <% end %>
     </div>
   <div class="action-container">
-  <div class="actions">
-    <%= f.submit :class=> 'pure-button pure-button-primary update-survey'%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Publish", :class=> 'pure-button pure-button-primary publish' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Unpublish", data: { confirm: "Are you sure?" }, :class=> 'pure-button pure-button-primary unpublish' %>
-  </div>
+    <div class="actions">
+      <button type="button" class="create-button-add pure-button pure-button-primary">Add Question</button>
+    </div>  
+    <div class="actions">
+      <%= f.submit :class=> 'pure-button pure-button-primary update-survey'%>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Publish", :class=> 'pure-button pure-button-primary publish' %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Unpublish", data: { confirm: "Are you sure?" }, :class=> 'pure-button pure-button-primary unpublish' %>
+    </div>
   </div>
 <% end %>
   
+    <script type="text/html" id="question-template">
+      <fieldset class="question-field pure-form">
+        <div class="field order-container">
+          <label for="survey_questions_attributes_2_order">Order</label><br>
+          <input class="order" type="number" name="survey[questions_attributes][2][order]" id="survey_questions_attributes_2_order" />
+        </div>
+        <div class="field type-container">
+          <label for="survey_questions_attributes_2_question_type">Question type</label>
+          <select class="type-select" name="survey[questions_attributes][2][question_type]" id="survey_questions_attributes_2_question_type"><option value=""></option>
+            <option value="boolean">Yes/No</option>
+            <option value="string">Short Answer</option>
+            <option value="text">Long Answer</option></select>
+        </div>
+        <div class="field value-container">
+          <label for="survey_questions_attributes_2_value">Value</label>
+          <input class="enter-question" type="text" name="survey[questions_attributes][2][value]" id="survey_questions_attributes_2_value" />
+        </div>
+        <div class="field require">
+          <label for="survey_questions_attributes_2_require">Required</label>
+          <input name="survey[questions_attributes][2][require]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][require]" id="survey_questions_attributes_2_require" />
+        </div>
+        <div class="field require">
+          <label for="survey_questions_attributes_2__destroy">Delete</label>
+          <input name="survey[questions_attributes][2][_destroy]" type="hidden" value="0" /><input class="checkbox" type="checkbox" value="1" name="survey[questions_attributes][2][_destroy]" id="survey_questions_attributes_2__destroy" />
+        </div>
+        <button type="submit" class="create-button pure-button pure-button-primary">Save</button>
+        <button type="button" class="create-button-remove pure-button pure-button-primary">x</button>
+      </fieldset>
+   </script>
