@@ -2,8 +2,336 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*************************
+Colors
+*************************/
+
+$white: #EEE;
+$black: #333;
+$primary-color: HSLA(181, 72%, 45%, 1);
+$delete-color: HSLA(347, 100%, 50%, 1);
+$general-color: HSLA(181, 5%, 45%, 1);
+
+/*************************
+Fonts
+*************************/
+
+$font: 'Open Sans', sans-serif;
+
+/**************************
+Mixins
+**************************/
+
+@mixin center-vert {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+}
+
+@mixin center-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+/*************************
+Survey Information
+*************************/
+
+
+h1 {
+  text-align: center;
+  margin: 4em 0 1em 0;
+}
+
+.survey-field {
+  width: 300px;
+  margin: 0 auto;
+  background-color: $white;
+  padding: 2em 0.5em;
+  border-radius: 5px;
+  border-bottom: 1em solid white;
+  text-align: center;
+  font-family: $font;
+}
+
+.survey-title {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.survey-desc {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.survey-field label {
+  font-size: 1.4em;
+  margin: 1em;
+  display: block;
+}
+
+
+
+/**************************
+Questions Section
+**************************/
+
+body {
+  font-family: $font;
+  margin: 5em 0 0 0;
+  font-size: 10pt;
+}
+
+h2 {
+  text-align: center;
+}
+
+.question-field label {
+  display: none;
+}
+
+.require label {
+  display: block;
+}
+/*
+.order {
+  display: none;
+}
+*/
+.new-question-header {
+  display: inline-block;
+  position: absolute;
+  margin: 0.4em -1em;
+  font-size: 1.2em;
+  left: -12%;
+  @include center-vert;
+}
+
+select {
+  margin-left: 0.8em;
+  height: 2.25em;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.create-button {
+  font-family: 'Open Sans', sans-serif;
+  background-color: $primary-color;
+  margin-bottom: 1em;
+  display: block;
+  margin: 1em auto;
+}
+
+.question-field .create-button {
+  display: inline-block;
+}
+
+fieldset {
+  padding: 0.15em 0 0.15em;
+  border: none;
+}
+
+.field {
+  display: inline-block;
+  text-align: center;
+}
+
+.order {
+  width: 100%;
+}
+
+.order-container {
+  width: 5%;
+}
+
+.type-container {
+  width: 8.5%;
+}
+
+.type-select {
+  width: 100%;
+}
+
+.enter-question {
+  width: 100%;
+  font-size: 1em;
+}
+
+.value-container {
+  margin: 0 0.5em 0 1.5em;
+  width: 60%;
+}
+
+.question-field {
+  width: 60%;
+  margin: 0 auto;
+  background-color: $white;
+  padding: 0.5em 0.5em;
+  border-radius: 5px;
+  border-bottom: 1em solid white;
+}
+
+.update-survey {
+  background-color: $primary-color;
+  margin-bottom: 1em;
+}
+
+.action-container {
+  @include center-horizontal;
+}
+
+
+/***********************************
+Header
+***********************************/
+
+.header {
+	background-color: HSLA(0, 0%, 20%, 0.6);
+  position: fixed;
+  top: 0;
+  height: 3.2em;
+  z-index: 1000;
+}
+
+.logo {
+	font-size: 1.4em;
+}
+
+.menu {
+
+}
+
+.menu-item {
+	font-size: 1.2em;
+	padding: 0.8em;
+}
+
+.menu-item a {
+	text-decoration: none;
+	color: white;
+	font-family: $font;
+}
+
+.menu-item:hover {
+  background-color: $white;
+  a {
+    color: HSLA(0, 0%, 20%, 0.6);
+  }
+}
+
+.menu-item a:hover {
+  background-color: $white;
+}
+
+.survey-list-container {
+  @include center-horizontal;
+  width: 95%;
+}
+
+.survey-card {
+  width: 25%;
+  margin: 1em auto;
+  background-color: $white;
+  padding: 1em;
+  z-index: -1;
+}
+
+.survey-data {
+  display: block;
+  margin: 1em auto;
+  width: 60%;
+}
+
+.survey-list-actions {
+  list-style-type: none;
+  display: block;
+  margin: 2em 1em 1em 1em;
+}
+
+.survey-list-button {
+  display: inline-block;
+}
+
+.survey-list-button a {
+  text-decoration: none;
+  display: block;
+}
+
+.survey-show {
+  background-color: $general-color;
+  color: white;
+}
+
+.survey-data-content {
+  font-size: 1.2em;
+}
+
+.survey-edit {
+  background-color: $primary-color;
+  color: white;
+}
+
+.survey-destroy {
+  background-color: $delete-color;
+  color: white;
+}
+
+//Styling for the survey show page
+.survey-card-show{
+  width: 50%;
+  margin: 1em auto;
+  background-color: $white;
+  padding: 1em;
+  z-index: -1;
+}
+
+.survey-view-page-actions-container{
+  width: 100%;
+}
+
+#show-page-edit-button{
+  margin-right: 1em;
+
+}
+  
+.create-button-add {
+  background-color: $general-color;
+  margin-bottom: 1em;
+}
+
+.update-survey {
+  margin-bottom: 1em;
+}
+
+.create-button-remove {
+  position: absolute;
+  background-color: $delete-color;
+  transform: translate(100%, 68%);
+}
 
 .required:before {
     content: " *";
     color: red;
+}
+
+.actions {
+  display: inline-block;
+}
+
+.publish, .unpublish {
+  margin-bottom: 1em;
+  background-color: $general-color;
 }

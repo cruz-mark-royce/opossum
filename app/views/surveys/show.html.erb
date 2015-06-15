@@ -1,21 +1,69 @@
-<p>
-  <strong>By:</strong>
-  <%= @survey.user %>
-</p>
-<p>
-  <strong>Title:</strong>
-  <%= @survey.title %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @survey.description %>
-</p>
-<% @survey.questions.order(:order).each do |q| %>
-  Question <%= q.order %><br/>
-  Question Type: <%= q.question_type %><br/>
-  Question: <%= q.value %><br/>
-  required: <%= q.require %><br/>
-  <hr>
-<% end %>
-<br/>
-<%= link_to 'Back', surveys_path %>
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @survey.title%>
+</h1>
+
+<div class = "survey-list-container">
+
+  <div class="survey-card-show">
+
+    <div class = "survey-creator">
+      <strong>Created by </strong>
+      <%= @survey.user.name %>
+    </div><br>
+
+    <div class = "survey-description">
+      <strong>Description</strong><br><br>
+      <%= @survey.description %>
+    </div><br>
+
+    <div class = "published">
+      <strong>Published:</strong>
+      <%= @survey.published %>
+    </div><br>
+    <% @survey.questions.order(:order).each do |q| %>
+        Question <%= q.order %><br/>
+        Question Type:
+
+
+
+        <% case q.question_type %>
+        <% when "string" %>
+          Short Answer
+        <% when "boolean" %>
+          Yes/No
+        <% when "text" %>
+          Long Answer
+        <% end %>
+
+
+
+
+        <br/>
+        Question: <%= q.value %><br/>
+        required:
+
+        <% if q.require == true %>
+          Yes
+        <% else %>
+          No
+        <% end %>
+
+        <hr>
+      <% end %>
+    <div class = "survey-view-page-actions-container">
+
+      <ul class="survey-list-actions">
+
+        <li class="survey-list-button" id = "show-page-edit-button"><%= link_to 'Edit', edit_survey_path(@survey), {class: 'pure-button survey-edit'} %></li>
+
+        <li class="survey-list-button"><%= link_to 'Destroy', @survey, :class=> 'pure-button survey-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>

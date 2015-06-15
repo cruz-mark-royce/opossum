@@ -34,7 +34,7 @@ group :production do
 end
 
 group :development do
-  gem 'rails-footnotes'
+  # gem 'rails-footnotes'
 end
 
 group :development, :test do

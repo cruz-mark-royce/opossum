@@ -1,32 +1,20 @@
 <h1>Listing Surveys</h1>
+<div class="survey-list-container">
+  <% @surveys.each do |survey| %>
+  <div class="survey-card">
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Published</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+      <div class="survey-data"><span class="survey-data-content"><strong>User:</strong></span> <%= survey.user.name.capitalize %></div>
+      <div class="survey-data"><span class="survey-data-content"><strong>Title:</strong></span> <%= survey.title.capitalize %></div>
 
-  <tbody>
-    <% @surveys.each do |survey| %>
-      <tr>
-        <td><%= survey.user.name.capitalize %></td>
-        <td><%= survey.title.capitalize %></td>
-        <td><%= survey.description.capitalize %></td>
-        <td><%= survey.published %></td>
-        <td><%= link_to 'Show', survey %></td>
-        <td><%= link_to 'Take', "/take/#{survey.id}" %></td>
-        <% if session[:user_id] %>
-          <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-          <td><%= link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div class="survey-data"><span class="survey-data-content"><strong>Description:</strong></span> <%= survey.description.capitalize %></div>
 
-<br>
+      <div class="survey-data"><span class="survey-data-content"><strong>Published:</strong></span> <%= survey.published %></div>
+
+      <ul class="survey-list-actions">
+        <li class="survey-list-button"><%= link_to 'Show', survey, {class: 'pure-button survey-show'} %></li>
+        <li class="survey-list-button"><%= link_to 'Edit', edit_survey_path(survey), {class: 'pure-button survey-edit'} %></li>
+        <li class="survey-list-button"><%= link_to 'Destroy', survey, :class=> 'pure-button survey-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+  </div>
+  <% end %>
+</div>
