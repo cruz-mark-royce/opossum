@@ -1,9 +1,5 @@
 class Question < ActiveRecord::Base
   belongs_to :survey
-<<<<<<< HEAD
-=======
-
->>>>>>> 2cb545c6af3b7cd6cc19416456ef254651c6a654
   has_many :answers
 
   validates :survey_id, presence: true
