@@ -9,5 +9,6 @@ class Survey < ActiveRecord::Base
   has_many :answers, through: :questions
 
   has_many :submissions
+
   validates :title, presence: true
 end
