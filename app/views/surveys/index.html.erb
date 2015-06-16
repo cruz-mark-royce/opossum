@@ -15,10 +15,12 @@
       <ul class="survey-list-actions">
         <li class="survey-list-button"><%= link_to 'Show', survey, {class: 'pure-button survey-show'} %></li>
         <li class="survey-list-button"><%= link_to 'Take', "/take/#{survey.id}", {class: 'pure-button survey-take'} %></li>
-        <li class="survey-list-button"><%= link_to 'Results', "/results/#{survey.id}", {class: 'pure-button survey-take'} %></li>
+        <li class="survey-list-button"><%= link_to 'Results', "/results/#{survey.id}", {class: 'pure-button survey-show'} %></li>
         <% if session[:user_id] %>
+        <div>
           <li class="survey-list-button"><%= link_to 'Edit', edit_survey_path(survey), {class: 'pure-button survey-edit'} %></li>
           <li class="survey-list-button"><%= link_to 'Destroy', survey, :class=> 'pure-button survey-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </div>
         <% end %>
       </ul>
   </div>
