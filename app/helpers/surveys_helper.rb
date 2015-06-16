@@ -6,7 +6,7 @@ module SurveysHelper
   end
 
   def logged_in
-    if session[:user_id].to_s != params[:id].to_s
+    if session[:user_id].to_s != Survey.find(params[:id]).user_id.to_s
       redirect_to root_path, notice: "ACCESS DENIED"
     end
   end
