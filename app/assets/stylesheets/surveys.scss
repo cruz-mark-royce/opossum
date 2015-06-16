@@ -221,19 +221,14 @@ Header
 	padding: 0.8em;
 }
 
-.menu-item-special {
-  color: white;
-	font-family: $font;
-  font-size: 1.2em;
-	padding: 0.8em;
-}
 
+/*
 .menu-item-special:hover {
     background-color: $white;
     color: HSLA(0, 0%, 20%, 0.6);
     cursor: default;
 }
-
+*/
 .menu-item a {
 	text-decoration: none;
 	color: white;
@@ -275,6 +270,12 @@ Header
   list-style-type: none;
   display: block;
   margin: 2em 1em 1em 1em;
+  padding: 0;
+}
+
+.survey-take {
+  background-color: $primary-color;
+  color: white;
 }
 
 .survey-list-button {
@@ -296,7 +297,7 @@ Header
 }
 
 .survey-edit {
-  background-color: $primary-color;
+  background-color: $general-color;
   color: white;
 }
 
@@ -363,3 +364,33 @@ Header
 .manage-login {
   float: right;
 }
+
+.slideout-item {
+  display: block;
+  //width: 0%;
+}
+
+.slideout-item a {
+  display: block;
+  //width: 0%;
+}
+
+.menu-item-special {
+  color: white;
+	font-family: $font;
+  font-size: 1.2em;
+	padding: 0.8em;
+  //float: right;
+}
+/*
+.slideout-container {
+  display: inline-block;
+  width: 0%;
+  float: right;
+}
+
+.create {
+  float: right;
+}
+
+*/

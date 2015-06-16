@@ -5,19 +5,17 @@
 		</li>
 		<% if session[:user_id] %>
 		<div class="manage-login">
-			<li class="menu-item pure-menu-item">
+			<li class="menu-item create pure-menu-item">
 				<%= link_to "Create Survey", new_survey_path %>
 			</li>
-			<li class="menu-item-special pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+			<li class="menu-item pure-menu-item slideout-item">
+				<%= link_to "My Surveys", mysurveys_path %>
+			</li>
+			<li class="menu-item pure-menu-item slideout-item">
+				<%= link_to "Logout", logout_path %>
+			</li>
+			<li class="menu-item-special pure-menu-item">
 				<%= @user.name rescue nil %>
-				<ul class="pure-menu-children">
-					<li class="menu-item pure-menu-item">
-						<%= link_to "My Surveys", mysurveys_path %>
-					</li>
-					<li class="menu-item pure-menu-item">
-						<%= link_to "Logout", logout_path %>
-					</li>
-				</ul>
 			</li>
 		</div>
 		<% else %>
