@@ -110,9 +110,11 @@ $(function () {
 
 $(function(){
 	if ($('#notice').text()!== '') {
-		$('.header').append('<div class="notice"><h1>'+$('#notice').text()+'</h1></div>');
+		$('.header').append('<div class="notice"><h2>'+$('#notice').text()+'</h2></div>');
+		
 		setTimeout(function () {
 			$('.notice').remove();	
-		},1500);
+		},2000);
+		
 	}
 });
