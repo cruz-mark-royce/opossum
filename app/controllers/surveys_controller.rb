@@ -2,11 +2,11 @@ class SurveysController < ApplicationController
 
   include ApplicationHelper
 
-  # before_action :logged_in, except: [:new, :create, :index, :take, :submit]
+  before_action :logged_in, except: [:new, :create, :edit, :update, :index, :take, :submit]
 
   before_action :set_user
 
-  before_action :set_survey, only: [:show, :edit, :update, :destroy, :take, :submit, :results]
+  before_action :set_survey, only: [:show, :edit, :update, :destroy, :take, :submit, :results, :publish]
 
   before_action :set_submission, only: [:take, :submit]
 
@@ -42,6 +42,7 @@ class SurveysController < ApplicationController
   end
 
   def publish
+    # if @surve
   end
 
   def show
