@@ -4,24 +4,31 @@
 			<%= link_to "Home", root_path %>
 		</li>
 		<% if session[:user_id] %>
-		<li class="menu-item pure-menu-item">
-			<%= link_to "Logout", logout_path %>
-		</li>
-		<li class="menu-item pure-menu-item">
-			<%= link_to "Create Survey", new_survey_path %>
-		</li>
-		<li class="menu-item pure-menu-item">
-			<%= link_to "My Surveys", mysurveys_path %>
-		</li>
+		<div class="manage-login">
+			<li class="menu-item pure-menu-item">
+				<%= link_to "Create Survey", new_survey_path %>
+			</li>
+			<li class="menu-item-special pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+				<%= @user.name rescue nil %>
+				<ul class="pure-menu-children">
+					<li class="menu-item pure-menu-item">
+						<%= link_to "My Surveys", mysurveys_path %>
+					</li>
+					<li class="menu-item pure-menu-item">
+						<%= link_to "Logout", logout_path %>
+					</li>
+				</ul>
+			</li>
+		</div>
 		<% else %>
-		<li class="menu-item pure-menu-item">
-			<%= link_to "Sign up", new_user_path %>
-		</li>
-		<li class="menu-item pure-menu-item">
-			<%= link_to "Login", login_path%>
-		</li>
+		<div class="manage-login">
+			<li class="menu-item pure-menu-item">
+				<%= link_to "Sign up", new_user_path %>
+			</li>
+			<li class="menu-item pure-menu-item">
+				<%= link_to "Login", login_path%>
+			</li>
+		</div>
 		<% end %>
-
-		<%= @user.name rescue nil %>
 	</ul>
 </div>

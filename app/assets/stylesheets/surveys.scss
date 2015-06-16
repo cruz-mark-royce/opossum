@@ -210,12 +210,28 @@ Header
 }
 
 .menu {
-
+  display: inline-block;
+  width: 100%;
+  padding: 0 1em;
+  box-sizing: border-box;
 }
 
 .menu-item {
 	font-size: 1.2em;
 	padding: 0.8em;
+}
+
+.menu-item-special {
+  color: white;
+	font-family: $font;
+  font-size: 1.2em;
+	padding: 0.8em;
+}
+
+.menu-item-special:hover {
+    background-color: $white;
+    color: HSLA(0, 0%, 20%, 0.6);
+    cursor: default;
 }
 
 .menu-item a {
@@ -226,6 +242,7 @@ Header
 
 .menu-item:hover {
   background-color: $white;
+  cursor: pointer;
   a {
     color: HSLA(0, 0%, 20%, 0.6);
   }
@@ -341,4 +358,8 @@ Header
 
 .delete-container {
   display: none;
+}
+
+.manage-login {
+  float: right;
 }
