@@ -358,6 +358,12 @@ Header
   padding: 0;
 }
 
+.menu-item-special a {
+  color: white;
+  font-family: $font;
+  text-decoration: none;
+}
+
 .delete-container {
   display: none;
 }
