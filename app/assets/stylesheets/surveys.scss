@@ -183,8 +183,13 @@ fieldset {
   width: 65%;
 }
 
-.question-field {
+.questions-container {
+  margin: 0 auto;
   width: 60%;
+}
+
+.question-field {
+  width: 100%;
   margin: 1em auto;
   background-color: $white;
   padding: 0.5em 0.5em;
