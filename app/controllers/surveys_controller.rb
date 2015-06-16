@@ -1,8 +1,12 @@
 class SurveysController < ApplicationController
 
-  include ApplicationHelper
+  include SurveysHelper
 
-  before_action :logged_in, except: [:new, :create, :edit, :update, :index, :take, :submit]
+  # logged_in checks if user is logged in AND if the survey is theirs
+  before_action :logged_in, only: [:edit, :update, :destroy, :publish]
+
+  # logged_in_at_all only checks if user is logged in
+  before_action :logged_in_at_all, only: [:user_index, :new, :create]
 
   before_action :set_user
 
@@ -11,6 +15,11 @@ class SurveysController < ApplicationController
   before_action :set_submission, only: [:take, :submit]
 
   before_action :set_questions, only: :results
+
+  #add after action for checking to
+  # if @survey.questions.first.results.count != 0
+  #   redirect_to root_path, notice: "Sruvey has already been taken. No updates allowed"
+  # end
 
   def index
     @surveys = Survey.all
@@ -65,6 +74,7 @@ class SurveysController < ApplicationController
         format.html { redirect_to mysurveys_path, notice: 'Survey was successfully created.' }
         format.json { render :show, status: :created, location: @survey }
       else
+        @survey.questions.build
         format.html { render :new }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
       end
@@ -94,7 +104,7 @@ class SurveysController < ApplicationController
   def destroy
     @survey.destroy
     respond_to do |format|
-      format.html { redirect_to surveys_url, notice: 'Survey was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Survey was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
