@@ -16,6 +16,11 @@ class SurveysController < ApplicationController
 
   before_action :set_questions, only: :results
 
+  #add after action for checking to
+  # if @survey.questions.first.results.count != 0
+  #   redirect_to root_path, notice: "Sruvey has already been taken. No updates allowed"
+  # end
+
   def index
     @surveys = Survey.all
   end
@@ -69,6 +74,7 @@ class SurveysController < ApplicationController
         format.html { redirect_to mysurveys_path, notice: 'Survey was successfully created.' }
         format.json { render :show, status: :created, location: @survey }
       else
+        @survey.questions.build
         format.html { render :new }
         format.json { render json: @survey.errors, status: :unprocessable_entity }
       end

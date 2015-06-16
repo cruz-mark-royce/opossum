@@ -5,21 +5,16 @@ better than survey monkey
 
 ### How to use
 
-This simple app allows anyone to create a user. Once you are logged in you can create surveys. Anyone can take your survey. All they have 
-*
+This simple app allows anyone to create a user. Once you are logged in you can create surveys. Anyone can take your survey.
 
-* System dependencies
+[Heroku app](https://filloutthissurveypls.herokuapp.com/)
 
-* Configuration
+* Localhost will run things fine.
 
-* Database creation
+* Heroku doesn't load the styles. Don't blame [Cruz](https://github.com/cruznunez).
 
-* Database initialization
+* Didn't really mess with the publish validations.
 
-* How to run the test suite
+* Built by [Cruz](https://github.com/cruznunez), [Mark](https://github.com/MarkHarper), and [Royce](https://github.com/royceDujardin).
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Built in five days.
