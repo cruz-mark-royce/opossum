@@ -31,7 +31,7 @@
       <%= ff.number_field :order, {class: "order"} %>
     </div>
     <div class="field type-container">
-      <%= ff.label :question_type %>
+      <%= ff.label :type %>
       <%= ff.select(:question_type,
               {'Yes/No' => 'boolean', 'Short Answer' => 'string', 'Long Answer' => 'text'},
               {include_blank: true},

@@ -6,19 +6,23 @@
 		<% if session[:user_id] %>
 			<div class="manage-login">
 				<li class="menu-item create pure-menu-item">
-					<%= link_to "👍Create Survey", new_survey_path %>
+					<%= link_to "Create", new_survey_path %>
 				</li>
-				<li class="menu-item pure-menu-item slideout-item">
-					<%= link_to "😀My Surveys", mysurveys_path %>
-				</li>
-				<li class="menu-item pure-menu-item slideout-item">
-				  <%= link_to "🔚Logout", logout_path %>
-				</li>
-				<li class="menu-item-special pure-menu-item">
+				<ul class="pure-menu-item" id="flex-out">
+					<span class='slideout'>
+						<li class="menu-item pure-menu-item">
+							<%= link_to "My Surveys", mysurveys_path %>
+						</li>
+						<li class="menu-item pure-menu-item">
+							<%= link_to "Logout", logout_path %>
+						</li>
+					</span>
+					<li class="menu-item-special">
 					<% name = @user.name.capitalize rescue nil %>
 					<% @user ||= "#" %>
 					<%= link_to "👤#{name}", edit_user_path(@user) %>
-				</li>
+					</li>	
+				</ul>
 			</div>
 		<% else %>
 			<div class="manage-login">

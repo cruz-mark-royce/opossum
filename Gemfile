@@ -32,7 +32,6 @@ group :production do
   gem 'rails_12factor'
   gem 'pg'
   gem 'puma'
-  ruby '2.2.2'
 end
 
 group :development do
