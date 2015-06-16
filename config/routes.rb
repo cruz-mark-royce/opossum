@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   get 'logout' => 'sessions#destroy'
   get 'answers/create'
-  get 'publish/:survey_id' => 'surveys#publish'
+  get 'publish/:id' => 'surveys#publish'
 
   resources :surveys
   get 'mysurveys' => 'surveys#user_index'
