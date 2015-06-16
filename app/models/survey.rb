@@ -11,4 +11,12 @@ class Survey < ActiveRecord::Base
   has_many :submissions
 
   validates :title, presence: true
+
+  # validate :at_least_one_question
+  #
+  # def at_least_one_question
+  #   if self.questions.count < 1 && !self.published
+  #     errors.add(:_, "Must have at least one question to publish")
+  #   end
+  # end
 end
