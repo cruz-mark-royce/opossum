@@ -7,7 +7,7 @@ better than survey monkey
 
 This simple app allows anyone to create a user. Once you are logged in you can create surveys. Anyone can take your survey.
 
-[Heroku app](https://filloutthissurveypls.herokuapp.com/)
+[Heroku app](https://salty-ridge-9318.herokuapp.com/)
 
 * Localhost will run things fine.
 
