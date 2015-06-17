@@ -78,7 +78,8 @@ $(function(){
 			});
 
 		$('.create-button-remove').click(function() {
-			$(this).parent().remove();
+			$(this).parent().find('.delete').prop('checked', true);
+			$(this).parent().css('display','none');
 		});
 	});
 });
