@@ -358,7 +358,7 @@ Header
 .create-button-remove {
   margin-left: 1em;
   background-color: $delete-color;
-  
+
 }
 
 .required:before {
@@ -459,7 +459,7 @@ Header
     width: 23em;
     margin: 0 0.5em 0 0.5em;
   }
-  
+
 }
 
 @media (max-width: 475px) {
@@ -468,7 +468,7 @@ Header
     display: inline-block;
     float: right;
   }
-  
+
   .menu-item-special {
     //width: 6.3em;
   }
@@ -488,5 +488,5 @@ Header
   .menu {
     padding: 0;
   }
-  
+
 }
